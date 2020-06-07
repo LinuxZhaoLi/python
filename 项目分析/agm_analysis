@@ -1,0 +1,98 @@
+1 获取文件的路径名：
+ s = path.rfind('/')
+        if s > 0:
+            pos = s + 1
+        else:
+            pos = 0
+        x = path[pos:len(path)]
+        x = x.replace('.', '')
+        self.logName = x
+        if not self.logName:
+            self.logName = 'db'
+2 创建一个数据对象链接：
+self.conn = sqlite3.connect(self.path, check_same_thread=False)
+3 数据的使用：
+        cur = self.conn.cursor() # 获取游标
+        res = cur.execute(sql) # 执行语句
+        rows = res.fetchall() # 获取执行结果
+        self.conn.commit() # 提交
+
+	self.conn.rollback() # 回滚
+
+
+4 格式化数据库字符串。
+def format_sqlStr(v):
+	if type(v) == type(1):
+		return "'%d'," % v
+	elif type(v) == type(""):
+		return "'%s'," %v
+	else:
+		return "'%s'," %v
+
+5 插入交易数据：
+def insertTrade(dict):
+	keys = list(dict.keys())
+	k = '',join("'%s', ") % k for k in keys
+	k = k.rstrip(', ')
+	# 序列中的元素以指定的字符连接生成一个新的字符串。
+	v = ''.join(format_sqlStr(dict[k] for k in keys)
+
+
+6 一次性获取多个列表
+	ls = []
+	ls1 = []
+	ls2 = []
+	retrun ls,ls1,ls2
+7 读取配置文件：
+	获取一个对象
+	config = configparse.ConfigParser()
+	config.read("file",encoding='utf-8')
+	config.write(codecs.open('file.ini','w','utf-8'))
+	思路：
+	自定义类--》 设置全局的配置字典
+	gConfig = {}
+	def config_get('file',section,key, defaultValue):
+		gConfig["file"] = Config("file")
+		return gConfig['file'].get(section,key,defaultValue)
+
+8 编码转换 codecs
+9 :数据库  <>  不等于
+    查找 a表中参数类型，参数版本， 并且 在b表中存在的类型和a表中版本不一样
+    sql = 'SELECT a.ParaType,a.NowVersion from Para a,T_Para b where a.Tag = a AND a.ParaType=b.ParaType AND a.NowVersion <> b.Version ORDER BY a.ParaType;'
+
+10 UNION  两个以上的 SELECT 语句的结果组合到一个结果集合中  字段是空值这样返回的 0
+    查找 参数类型，参数版本，条件：a，b表中存在存在，还用b表中有，且不在a,b表的较集中。
+    SELECT a.ParaType, a.NowVersion from Para a,T_Para b WHERE a.Tag =1 AND a.ParaType = b.ParaType
+     UNION SELECT b.ParaType, 0 AS NowVerson from T_Para b WHERE b.ParaType NOT IN (SELECT a.ParaType
+      FROM Para a, T_Para b WHERE a.Tag =1 AND a.ParaType=b.ParaType)
+
+11 mqtt  线程内核线程，用户线程 run()用以表示线程活动的方法。
+    开启开启一个线程。构造时参数是一个对象。
+    def __init__(self,obj):
+        threading.Thread.__init__(self)
+        self.obj = obj
+    def run(self):
+        obj = self.obj
+        obj.client = mqtt.Client(obj.client_id)
+        obj.client.on_connect = obj.on_connect # 绑定对象和方法和mqtt的方法
+        obj.client.on_publish = obj.on_publish
+
+
+        try:
+            obj.client.connect(obj.host,obj.port,obj.keepalive)
+            nRet = True
+        except Exception as e:
+            log(e)
+        c.client.loop_forever(retry_first_connection=True)
+    class Protcal(obj):
+        # 提供编码和解码
+        def Byte(self,arg):
+            data = json.dumps(arg).encode('utf-8')
+            return data
+         def Parse(self,buf):
+            try:
+                data = json.loads(buf.decode('utf-8'))
+            except Exception as e:
+                log(e)
+            return data
+
