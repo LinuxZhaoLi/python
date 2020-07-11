@@ -1,0 +1,55 @@
+第一天： 目标配置vim环境。
+遇到问题：
+(1)  "/usr/bin/yum", line 30 except KeyboardInterrupt, e:  需要修改/usr/bin/yum文件中的python版本
+
+(2)该如何将vi编辑器升级成vim呢?
+检查版本：
+rpm -qa|grep vim
+
+[root@localhost usr]# rpm -qa|grep vim
+vim-minimal-7.4.629-6.el7.x86_64
+vim-filesystem-7.4.629-6.el7.x86_64
+vim-enhanced-7.4.629-6.el7.x86_64
+vim-common-7.4.629-6.el7.x86_64
+vim-X11-7.4.629-6.el7.x86_64
+
+
+（3） 配置
+
+vim /etc/vimrc
+
+ set nu          " 设置显示行号
+ set showmode    " 设置在命令行界面最下面显示当前模式等
+ set ruler       " 在右下角显示光标所在的行数等信息
+ set autoindent  " 设置每次单击Enter键后，光标移动到下一行时与上一行的起始字符对齐
+ syntax on       " 即设置语法检测，当编辑C或者Shell脚本时，关键字会用特殊颜色显示
+
+
+你所需要的第一件东西就是一个好用的扩展管理器。
+
+推荐Vundle。你可以把它想象成Vim的pip。
+
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+这样，你就完成了使用Vundle前的设置。之后，你就可以在配置文件中添加希望安装的插件，然后打开Vim编辑器，运行下面的命令：
+:PluginInstall
+这个命令告诉Vundle施展它的魔法——自动下载所有的插件，并为你进行安装和更新
