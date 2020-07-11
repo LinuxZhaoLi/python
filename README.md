@@ -11,4 +11,4 @@ yum install python-setuptools
 easy_install django
 
 创建项目：
-django-admin.py startproject testdj
+django-admin.py startproject testdj    
