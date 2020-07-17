@@ -1,0 +1,2 @@
+mspaint : 打开画画板
+taskmgr: 打开资源管理器
