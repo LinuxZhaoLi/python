@@ -1,0 +1,13 @@
+os.listdir("../dir")  查看
+os.path.dirname(os.getcwd())  获取当前文件的上一级路径
+import argparse  导包
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--type', default=1, type=int,
+                    help='net type 1-A 2-B')
+args = parser.parse_args()
+
+print(args)
+命令行参数
+
+1 怎么新建一个sc服务器。
