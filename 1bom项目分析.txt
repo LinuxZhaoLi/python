@@ -1,0 +1,22 @@
+1 什么时候进行参数更新？
+2 什么时候进行软件更新？
+(2)软件更新：
+创建一个mqtt对象。
+
+初始化命令。
+ftp命令。
+	更新命令：
+		处理软件更新。
+                解压文件。zipfile.ZipFile("dir"+ name, "r")
+						z.extractall(path="../path")
+						z.close()
+						软件更新：
+				传入： 源文件地址。判断是文件还是文件夹。
+				shutil.copytree(orPath,desPath)
+
+
+
+
+
+                
+view命令.

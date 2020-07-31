@@ -1,0 +1,2 @@
+Job for rabbitmq-server.service failed. See "systemctl status rabbitmq-server.service" and "journalctl -xe" for details.
+:
