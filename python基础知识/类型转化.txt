@@ -1,0 +1,54 @@
+bytearray 转化为str.
+
+str ---> bytes:
+bytes(s,encoding="utf-8")
+
+bytes ---> str
+str(b,encoding="utf-8")
+
+
+bytearray  转化为str:
+str = bytearray.decode('utf-8')
+
+str  = "aabbcc"
+
+列表数相加：
+
+
+ll = [[1,2,3],[1,2,3],[1,2,3]]
+def extendLists(lists):
+    listWhole = []
+    for itemList in lists:
+        listWhole.extend(itemList)
+    numberWhole = sum(listWhole)
+    return numberWhole
+json 将dict 转化为str
+
+op = {"1":"2"}
+str = json.dump(op).encode() 转化为字节
+
+
+timedelta
+:模块ctypes是Python内建的用于调用动态链接库函数的功能模块,一定程度上可以用于Python与其他语言的混合编程
+
+
+os.system("rd C:\\Users\\Administrator\\AppData\\Local\\Temp /s /q") // 删除文件
+
+
+ win32api.ShellExecute(0,'open',exe,'','',1)  # python 打开程序
+
+os.system('taskkill /f /im %s'% name) 关闭程序
+
+
+
+关闭系统： 延迟
+while cnt:
+	time.sleep(1)
+	cnt = cnt-1
+os.system("shutdown -s -t 0")
+
+获取配置文件：
+map = {}
+    list = ['host','port','username','password','homeDir','localDir']
+    for i in list:
+        map[i] = configTest.get(section,str(i),'0')

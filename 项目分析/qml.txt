@@ -1,0 +1,6 @@
+1 定义一个类，  
+class MLog: public Qobject
+{
+
+   explicit MLog(QString filename,)
+}
