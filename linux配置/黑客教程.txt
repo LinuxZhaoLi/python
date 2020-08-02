@@ -1,0 +1,74 @@
+https://www.bilibili.com/video/BV1Qt41177Ec?p=6
+
+nc 瑞士军刀
+nc -nv 1.1.1.1 110
+/etc/resolv.conf 文件是dns 客户机服务器
+nameserver: 定义dns 服务器的ip地址
+domain  # 定义本地域名
+search  # 定义域名收缩列表
+sortlist  # 对返回的列表进行排序
+
+
+netstat -rn  # 查看网关路由信息
+
+mtr ip 查看网络性能
+
+base64命令： ctrl + D 结束输入。
+
+nc -l -p 4444 打开nc服务。 -l listen  -p 端口
+nc -nv 1.1.1.1 444  tcp连接
+电子取证。
+
+ls -l |nc -nv 10.1.1.1 33  收集信息发送到10.1.1.1
+nc 传输文件
+nc -lp 333> 1.mp3  服务端
+nc -nv 1.1.1.1 333 < 1.mp3 -q 1 结束时间
+
+传输目录：
+tar -cvf - music/ | nc -lp 333 -q 1
+nc -nv 1.1.1.1 333 | tar -xvf -
+
+流媒体服务器：
+cat 1.mp4 |nc -lp 333
+nc -nv 1.1.1.1 333 |mplayer -vo x11 cache 3000 - 
+
+端口扫描： -z
+nc  -nvz  1.1.1.1 0-65535
+
+3389 远程桌面
+远程控制： nc -lp 333 -c bash   服务器
+客户端 nc -nv 192.168.2.1 333
+
+
+init 6 系统重启
+ncat -c bash --allow 192.168.1.1 -vnl 333 --ssl 打开服务
+ncat -nv 192.168.1.2 333 --ssl
+
+
+
+抓包工具：
+wireshark  数据包分析。分析协议。
+对010101010110001101 编码解码。
+
+选择网卡：
+抓包筛选器：captrue Filter
+
+tcpdump  -i（指定网卡） eth0 tcp port 22  
+tcpdump  -a -i eth0  -s 0 (数据包大小)  -w a.cap （保存）
+tcpdump -r a.cap 查看保存的文件  -x 十六进制显示
+awk 显示第三列。
+
+tcpdump -n (不解析ip) -r （读取信息）awk `{print $3}` |sort -u （去重）
+tcpdump -n src host 192.168.1.11 -r a.cap 指定目标地址
+tcpdump -A (Asics码) -n `tcp[13]=24` -r a.cap  
+
+
+
+
+
+
+
+ 
+
+
+
