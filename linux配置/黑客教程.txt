@@ -63,6 +63,87 @@ tcpdump -n src host 192.168.1.11 -r a.cap 指定目标地址
 tcpdump -A (Asics码) -n `tcp[13]=24` -r a.cap  
 
 
+第三章：
+第一种数据包 arp 数据包：
+分层
+第一层： 包的大小。是多少帧。时间。报的详细信息。 
+第二层数据帧的内容。目标地址，源地址：协议。  协议的三层。
+
+第三种arp的包头协议。  
+硬件类型。  48个位。 
+wardware 6* 8
+发送端的mac, 发送端的ip
+接收端的mac 接收端ip
+ 
+请求。
+判断上层协议。
+ttl = 128
+tcp udp（protocal）(17)    
+四层协议：255种  protocal = 6是 tcp
+ip是三层包头  
+  
+opration 字段。
+tcp 面向连接。三次握手。每次链接发送数据都会确认链接。
+第一次发送： syn
+第二次发送： ack 
+第三四发送： syn ack 
+tcp 流量开销大。
+
+
+dns:  应用层协议。
+queries:
+  解析主机名服务
+http:
+	User-Agent: 
+
+ftp:
+应用层协议。
+通过端口区分协议。
+访问非80端口的服务器。 不会按http去解析协议。
+
+数据流：
+访问过程：
+多个数据流完成一次通信。
+
+应用程： ssl  四层tcp被加密。
+
+第四课：
+statistics:
+抓包文件。*.cap  在wareshark 官网下载。文件。
+
+节点： 
+二层包头。
+那个服务器发送数据包最多。
+
+dns : udp协议。
+包的长度。
+小包攻击。
+
+
+解码方式：
+数据包的解码。
+
+Analyze  -> export info:专家分析。
+dhclient eth0 重新获取ip
+
+
+nc -lp 333 -c bash   监听端口333 连接上把bash 交给对方。
+
+
+follow tcp stream 查看信息。
+
+ncat -nvl 333 -c bash --ssl   加密。
+
+商业抓包文件：
+sniffer, cace/ riverbed   基于wareshark .
+
+
+
+三层交换机：
+
+端口镜像：
+一个网卡抓包， 一个网卡正常上网
+
 
 
 
