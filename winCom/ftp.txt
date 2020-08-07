@@ -1,0 +1,5 @@
+ftp:
+open ip:
+切换交换模式prompt
+下载文件：mget filename.
+
