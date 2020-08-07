@@ -1,8 +1,11 @@
 学习，学习。
 192.168.1.254:8080/svn/FuZhou/Line1-2/Source/SLE/HMPca/pro
-192.168.1.254:8080/svn/FuZhou/Line1-2/Source/SLE/HMTCM/pro
+http://192.168.1.254:8080/svn/FuZhou/Line1-2/Source/SLE/HMTCM/pro
 E:\HMBOM\para from http://192.168.1.254:8080/svn/FuZhou/Line1-2/Source/SLE/HMBOM/para
 E:\agm\pro from http://192.168.1.254:8080/svn/ZhenZhou/Line5/Source/HMAgmPy/pro
 E:\qmlEg\QtQuickExamples.git\trunk from https://github.com/LinuxZhaoLi/QtQuickExamples.git/trunk
 
 http://36.22.178.210:81/redmine/issues/12545
+
+
+0134
