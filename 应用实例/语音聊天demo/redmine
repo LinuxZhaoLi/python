@@ -1,0 +1,15 @@
+环境： speech_recognition(语音识别包)包名(speechrecognition), pyaudio(录音接口),wave(音频文件处理),pytts4(语音文本转化),json, requests, baidu_aip
+下载百度SDK ： https://ai.baidu.com/tech/speech/asr
+AppId: 21862234
+API key: pgGF0FGflQtGopuOQX9yXauE
+Secret Key: 8TfOu3Zo09GCEXgAGk8UvlQqY2v8oC7W
+图灵机器人：http://www.turingapi.com
+apikey: e0cd6225d7eb45d6824334715f8f31fc
+构建思路：
+input --> baidu_api---> tuling_api-->tts---> output
+
+
+
+
+
+
