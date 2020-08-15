@@ -35,12 +35,29 @@ void testPath()
     }
 
 }
+
+bool isValidIP(QString ip){
+    QStringList Numlist;
+    Numlist = ip.split('.');
+    if (Numlist.length() != 4)
+    {
+        return false;
+    }else{
+
+        for(int i = 0;i< 4;i++)
+        {
+            if(Numlist[i].toInt()>255)
+            {
+                return false;
+            }
+
+        }
+        return true;
+    }
+
+}
 int main( int argc, char **argv )
 {
-Q_UNUSED(argc)
-Q_UNUSED(argv)
-testPath();
+qDebug()<<isValidIP("192.15.12.256");
 return 1;
-
-
 }

@@ -134,6 +134,7 @@ notepad: 打开文本编辑器。
 	goto loop
 	pause>nul
 	exit
+	9 交互操作：
 	
 	
 	
