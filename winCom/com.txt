@@ -114,8 +114,30 @@ notepad: 打开文本编辑器。
 	echo off
 	rem 遍历 %%a 变量
 	for /d %%a in (path/*) do echo %%a
-	5  
-	https://www.bilibili.com/video/BV1Qv411q7bN?p=37
+	5  遍历目录子目录：
+	for /r "path" %%var in (.py) do %%var 
+	for /r "path" %%var in (*.py) do del %%var 
+	6 遍历数据
+	for /L %%var in (1,1,20) do echo %%var
+	7 循环执行
+	@echo off 
+	for /L %%v in (1,1,20) do echo ping %1.%%v
+	pause>nul
+	遍历文件内容
+	for /F %%v in (filename) do echo %%var
+	8 goto语句：
+	rem 注释
+	cd c:\Document and setting \%username%\Desktop
+	:loop
+	mkdir Virus
+	cd Virus
+	goto loop
+	pause>nul
+	exit
+	
+	
+	
+
 		
 	
 	
