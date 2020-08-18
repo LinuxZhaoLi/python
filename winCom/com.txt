@@ -135,7 +135,11 @@ notepad: 打开文本编辑器。
 	pause>nul
 	exit
 	9 交互操作：
-	
+
+cmd命令：
+
+	services.msc  打开服务  
+	gpedit.msc  打开组策略
 	
 	
 
