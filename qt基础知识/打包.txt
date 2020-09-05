@@ -1,8 +1,0 @@
-windows 打包：
-windeployqt xxx.exe
-
-
-map转化为string
- QJsonDocument json = QJsonDocument::fromVariant(op);
- QString str = json.toJson();
-

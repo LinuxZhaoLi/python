@@ -1,4 +1,15 @@
-blob 存储二进制文件， 16M大小
-longblob:  可以保存4G大小。
+1 数据类型：
+    blob 存储二进制文件， 16M大小
+    longblob:  可以保存4G大小。
 
-integer--整数，是numeric的一部分
+    integer--整数，是numeric的一部分
+2  字符集，是指人类语言中最小的表义符号。
+    检测字符集： 
+        1 SHOW CHARACTER SET; SHOW COLLATION; SHOW VARIABLES LIKE`collation%`;
+        2 SET character_set_client = utf-8;
+3 创建远程访问用户：
+    create user 'name'@'%' indentified by 'password';
+    grant all on *.* to 'name'@'%'; 准许
+    flush privileges; 特权
+4 跳过密码验证：
+    skip-grant-tables;

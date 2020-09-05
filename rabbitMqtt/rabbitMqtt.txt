@@ -1,2 +1,40 @@
 Job for rabbitmq-server.service failed. See "systemctl status rabbitmq-server.service" and "journalctl -xe" for details.
 :
+
+1 介绍：  当前最主流的消息中间件之一
+          用于分布式系统中储存转发消息。易用，扩展性，高可用
+           源码安装避免升级后带来服务器故障
+
+2 安装：
+    1 安装erlang : wegt http://erlang.org/download/otp_src_21.1.tar.gz
+3 安装依赖：
+    yum install -y make gcc gcc-c++ m4 openssl openssl-devel ncurses-devel\
+     unixODBC unixODBC-devel java java-devel
+
+4 添加环境变量
+
+5 下载rabbitMq源码包：
+    wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.7.8
+    /rabbitmq-server-generic-unix-3.7.8.tar.xz
+
+    解压：tar -xvf rabbitmq-server-generic-unix-3.7.8.tar.xz -C /usr/local/
+
+    添加环境变量： PATH=$PATH:/usr/local/rabbitmq_server-3.7.8/sbin
+
+1 怎么查看服务器日志：
+    /usr/local/rabbitmq_server-3.7.8/var/log/rabbitmq、
+2 启用日志
+    rabbitmq-plugins enable rabbitmq_tracing
+
+3 重启服务
+    1)rabbitmqctl stop
+    2)rabbitmq-server restart
+
+4 添加账号
+    rabbitmqctl add_user admin admin 
+    ./rabbitmqctl set_permission -p "/" admin ".*" ".*" ".*"
+
+5 修改远程账号登录权限：
+    $$RABBITMQ/ebin/rabbit.app
+    loopback_users,[]  列表清空
+    systemctl restart rabbitmq-server.service

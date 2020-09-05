@@ -12,3 +12,6 @@ easy_install django
 
 创建项目：
 django-admin.py startproject testdj    
+
+github 提速：
+    （1）git clone https:// xxxx.com.cnpmjs.org/xxx.ss.git

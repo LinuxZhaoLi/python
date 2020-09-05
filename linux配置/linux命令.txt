@@ -1,2 +1,32 @@
 “df -h”显示目前磁盘空间和使用情况。 “df -i” 以inode模式来显示磁盘使用情况。
 nmap + ip : 查看服务器开放的端口。
+
+sudo netstat -tunlp | grep "ssh"  查看端口  
+
+1 查看运行的服务
+     systemctl list-unit-files
+2 contes 使用旧的防火墙
+    yum install iptables-services
+    service iptables restart
+3 添加开放端口
+    /etc/sysconfig/iptables
+    -A INPUT -m state --state NEW -m tcp -p tcp --DPORT 3306 -j ACCEPT;
+4 递归创建文件夹
+    mkdir -p (即使目录不存在，也会执行)
+
+5 添加环境变量
+    vi /etc/profile 
+    PATH=$PATH:/usr/local/erlang/bin
+6 查看端口
+    netstat -an
+
+7 查找文件夹：
+    find / -name 'log' -type d
+
+
+
+
+深度：
+    1 集群搭建方法
+
+    
