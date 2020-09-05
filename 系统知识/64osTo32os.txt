@@ -1,4 +1,0 @@
-第一步：
-下载安装32位python3.5（不限制版本号），下载地址 https://www.python.org/downloads/windows/
-第二步：
-下载安装32位pywin32，打包成exe需要pywin32这个包，下载地址 https://sourceforge.net/projects/pywin32/files/pywin32

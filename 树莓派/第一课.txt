@@ -1,0 +1,34 @@
+带外部供电的usb.
+一个摄像头。
+计算海拔高度。
+
+
+安装motion
+开机自启：
+sudo apt-get install motion
+sudo nano /etc/default/motion 
+start_motion_daemon = yes
+
+
+diskgenius 格式化TF卡
+win32 disk imager: 把系统写入TF卡
+
+
+advanced ip scanner: 网络扫描工具。
+
+字体设置：
+/storage/assets/xmb/monochome/font.ttf
+
+
+
+软件源：
+/etc/apt/souces.list.d/raspi.list
+清华源：
+ http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/
+
+看客节点：
+ https://www.bilibili.com/video/BV1bt411c7fC?p=13
+
+
+
+

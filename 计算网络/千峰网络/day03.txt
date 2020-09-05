@@ -1,0 +1,47 @@
+ntfs: 权限
+两个账户都同一个文件夹由不同的权限。
+a 用户可以读取内容。
+桌面是a用户桌面。c:/Decoment setting/生成a配置文件。
+b: 只能创建内容。
+
+acl: 表。
+默认user组。 user组不能上传。父目录和子目录。  权限继承。
+创建者： 本人。 creator owner.
+Administator 至高无限的权限。取消继承。
+
+取消继承。权限累加。
+
+a: IT部。HR部。  不踢出组。怎么限制a。
+：拒绝权限。
+拒绝最大。
+看得见无法操作。
+
+添加IT组，HR组。net localgroup IT /add  net localgrouo IT a /add
+
+强制继承：
+	公共文档。对象强制继承。
+	文件复制后会被目标文件夹的权限覆盖。
+
+文件共享服务器：
+	cifs: 类似ftp  
+	本地ntfs权限，和共享权限共同影响。
+	总文件夹为共享文件。添加权限。取消继承，修改权限。
+	unc地址： \\ 192.168.1.1
+	创建文件-->设置共享文件--> 
+	查看账户信息： whoaim
+	隐藏共享： jim$  共享文件名字加上$
+	net user ,net localgroup , net share,(查看共享文件)
+	域管理员。
+	net shara share /del   删除共享文件。 端口445 共享文件。
+	删除： c$: D$: ipc$:
+  	共享文件： net share C$= C:\
+ 注册表： regedit
+ 屏蔽： HKEY_Local_MACHINE\System\CurrentControlSet\Service\LanmanServer\Parameter\ 添加REG_DWORD AutoShareServer 值为零。
+高级防火墙： 出站规则，入站规则。关闭445.
+
+
+用winpe破解密码：
+潜入sam文件。新hash值。微型维修系统。
+进入u盘引导。优盘系统，u是系统盘，c盘是硬盘。 u深度增强版。
+
+

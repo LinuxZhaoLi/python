@@ -1,0 +1,32 @@
+1 编译生成动态库
+    gcc -s -shared -o libmy.so -fPIC showmessage.c
+    -fPIC 作用于编译阶段，告诉编译器产生与位置无关代码
+    gcc test.c -o test -L ./ -ldl
+    -dl ，是显式加载动态库的动态函数库
+    示例：
+        #include <stdio.h>
+        #include <dlfcn.h> # 动态库的显示调用
+        #include <stdlib.h>
+
+        void main(void)
+        {
+                void *dp;  # 数以指定模式打开指定的动态连接库文件，并返回一个句柄给调用进程
+                char *error;
+                void (*say)(char*);     // 接受函数
+                puts("so文件应用示范");
+                dp = dlopen("./libmy.so",RTLD_LAZY); //数以指定模式打开指定的动态连接库文件，并返回一个>句柄给调用进程
+                if(dp==NULL)
+                {
+                        fputs(dlerror(),stderr);
+                        exit(1);
+                }
+                say = dlsym(dp,"say");  // 接受函数
+                error = dlerror();
+                if(dp == NULL)
+                {
+                        fputs(dlerror(),stderr);
+                        exit(1);
+                }
+                say("hello world"); // 调用函数
+                dlclose(dp);
+        }

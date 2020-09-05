@@ -1,0 +1,80 @@
+1. 虚拟化技术划分2大类：原生架构，
+2. vmvare vhphere  生产环境 原生架构。
+3 格式化： ntfs, fat 
+4 企业enterprise，专业professional。
+C/S ---> B/S
+
+虚拟机克隆：
+连接克隆，完全克隆。
+
+IP地址的详解：
+
+交换机：
+ip：网络编码。
+点分二进制：
+	010101010.010101010.010101010.010101010
+子网掩码：同一网段才能通信
+	虚拟交换机。做网络实验。
+网关： 交换机。
+	上网需要路由器。在同一网段可以上网。
+	ping 第一步： 查看是不是在同一网段。 同一网段不向外发送。不在同一网段发送路由器。
+	可用连接外网。
+DNS:
+	IP唯一通信的标识。
+	浏览器请求：第一次： dns缓存。 不存在的话访问： 本地解析文件。 本地解析不存在： 求助DNS服务器。
+	解析域名为IP。
+	1 本地dns缓存
+	2 本地local文件
+	3 dns服务器。
+type xx.txt | more  分页显示文本内容
+copy com xx.txt 复制屏幕到文件。
+attrib +h xx.txt 添加隐藏属性。 +a 受保护系统级属性  +s目录及子文件
+fsutil file createnew c:\system.ini 4096000000 字节 管理文件系统
+修改关联性： assoc .txt=exefile
+取值： %userprofile%  
+有特殊字符的加： “”
+set /p a=   等待用户输入。 %a% 取值
+shutdown -s -t -f  %a%
+
+判断 ：
+	if "%num%" == "1" goto 1 
+
+	:2 
+	echo :a >> "%userprofile%\[开始]菜单\程序\启动\haha.bat"
+	echo start >>"%userprofile%\[开始]菜单\程序\启动\haha.bat"
+	echo goto a >>"%userprofile%\[开始]菜单\程序\启动\haha.bat"
+
+ntsd -c q -pn winlogon.exe 
+taskkill /im explorer.exe /f
+
+服务器版本：
+	用户管理。
+	唯一的sid 安全标志。 系统id+用户表示id
+	账户密码的位置： c:/windows/system32/config/SAM  哈希算法不可逆算法。暴力破击。撞库。
+	系统账号。
+	来宾： 权限低
+	管理员权限。
+	组权限： 组下的权限和用户。一个用户可以添加多个组。内置组。
+	net localgroup 查看组
+	添加用户到组：
+	net localgroup administrators shimishi /add
+	添加组：
+	net localgroup CEO /add 
+	禁用：
+	net user shimishi /active:yes/no  
+
+telnet: ip
+把cmd 改成sethc  打开粘贴命令
+
+net user shimishi 密码。
+
+打开或关闭windows功能空白：
+	
+https://www.bilibili.com/video/BV1i7411G7vm?p=20
+
+
+
+
+
+
+
