@@ -15,3 +15,9 @@ django-admin.py startproject testdj
 
 github 提速：
     （1）git clone https:// xxxx.com.cnpmjs.org/xxx.ss.git
+
+
+(1)  使用nodejs 搭建一个rabbitMqtt 服务器。
+（2） 电脑怎么省电。
+（3）qt 调试怎么打印json.
+

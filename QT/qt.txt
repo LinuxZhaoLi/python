@@ -75,3 +75,6 @@
 9 qml 获取时间
     var dt=newDate;
     var tt = Qt.formatDateTime("hh:mm:ss")
+10 map转化为string
+    QJsonDocument json = QJsonDocument::fromVariant(op);
+    QString str = json.toJson();

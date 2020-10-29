@@ -30,3 +30,25 @@
                 say("hello world"); // 调用函数
                 dlclose(dp);
         }
+
+2 程序连接.a文件，连接静态
+3 lib 和dll ：
+        （1） lib是编译时用到的 dll 运行时用到
+        （3） lib 记录dll 函数入口和位置。
+        （3） 动态连接需要两个文件 lib文件 dll文件 
+        （4） 使用win32 api 函数Loadlibrary GetProcAddress 装载。
+
+语音合成项目：
+库文件：(1)msc.dll  (2)msc_x64.dll
+
+（1）bailib是编译时du用到的，dll是运行时用到的。如果要zhi完成源代码的编译，
+只dao需要lib；
+如果要使动态链接的程序运行起来，只需要dll。
+
+
+(1)  包含头文件，导入库文件
+导入库文件：
+# pragma comment(lib,"../libs/msc.lib") 
+
+强制类型转化：
+1, static_cast  2, const_cast 3, reinterpret_cast 

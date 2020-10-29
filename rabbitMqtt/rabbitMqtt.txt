@@ -38,3 +38,12 @@ Job for rabbitmq-server.service failed. See "systemctl status rabbitmq-server.se
     $$RABBITMQ/ebin/rabbit.app
     loopback_users,[]  列表清空
     systemctl restart rabbitmq-server.service
+
+6  安装管理控制台
+    rabbitmq-plugins enable rabbitmq_management  
+7 开启对应端口：
+    firewall-cmd --permanent --add-port=15672/tcp
+    firewall-cmd --permanent --add-port=5672/tcp
+
+
+

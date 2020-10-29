@@ -24,9 +24,72 @@ sudo netstat -tunlp | grep "ssh"  查看端口
     find / -name 'log' -type d
 
 
-
-
+8  conda退出bash环境：
+    ～/.bashrc 文件中
+    执行了   conda  activate base 命令
+    conda deactivate  退出虚拟环境
 深度：
     1 集群搭建方法
+9 查看是否安装了程序：
+    rmp -qa | grep 'xx'
+10 linux 修改密码：
+    passwd：
 
-    
+11 查看文件夹
+    ls -d */ 
+
+12 vi命令
+    ctrl + w 切换窗口
+13 vim -On file1 file2 
+14 split -b 820000k -a 2 filename data_  指定每块大小为820000k，-a 2代表2位数命名，‘data_’代表前缀是’data_’
+
+
+需要将Unicode字符转成ASCII数值:
+ord()
+15 查看进程：ps -ef|grep gogs | grep -v grep | wc -l 
+    grep  -v  排除grep行
+
+
+原因分析：
+（1）  日志文件较多，长时间没有清理
+（2）  大文件占用
+（3）  没有执行完的程序被kill掉。缓存中的程序没有释放，仍在运行
+（4）  磁盘空间的i节点耗尽了  ： df -i /dev/sda1  查看i节点情况 删除占用i节点的空文件 rm -rf '/ -empty -a -type f'
+
+查看磁盘空间： du -h  
+du -sh /dev
+/var/log/syslog.1
+du -sh * | sort -n  统计并排序
+du -sk filename 指定文件大小
+
+如何查看CPU总占用率？
+top -bn 1 -i -c
+sar -P 0 -u 1 5 
+chkconfig命令主要用来更新（启动或停止）和查询系统服务的运行级信息
+chkconfig –list  
+chkconfig –list        #列出所有的系统服务
+chkconfig –add httpd        #增加httpd服务
+chkconfig –del httpd        #删除httpd服务
+chkconfig –level httpd 2345 on        #设置httpd在运行级别为2、3、4、5的情况下都是on（开启）的状态
+chkconfig –list        #列出系统所有的服务启动情况
+chkconfig –list mysqld        #列出mysqld服务设置情况
+chkconfig –level 35 mysqld on        #设定mysqld在等级3和5为开机运行服务，–level 35表示操作只在等级3和5执行，on表示启动，off表示关闭
+chkconfig mysqld on        #设定mysqld在各等级为on，“各等级”包括2、3、4、5等级
+						  
+
+1.根据进程号进行查询：
+
+# pstree -p 进程号
+
+# top -Hp 进程号
+
+2.根据进程名字进行查询：
+
+# pstree -p `ps -e | grep server | awk '{print $1}'`
+
+# pstree -p `ps -e | grep server | awk '{print $1}'` | wc -l
+
+3 查看显卡型号：
+     lspci |grep VGA
+
+

@@ -1,0 +1,28 @@
+1 打开服务
+   services.msc  
+2 打开组策略 
+	gpedit.msc  
+3 设置编码
+	chcp 65001
+4 添加路由
+    route -p add 10.47.12.102 mask 255.255.255.0 10.47.11.1
+
+5 文件正在使用：
+   taskmgr ---> cpu  ---> 文件句柄  输入文件名
+
+6 修改文件默认打开程序： 
+   control ---> 默认程序
+
+7 添加程序开机自动启动
+   1） 添加执行程序到启动文件夹
+   2 ） 修改注册表，HKEY_LOCAL_MACHINE-->SOFTWARE-->Microsoft-->Windows --> CurrentVersion ->Run
+    
+
+8  git提速  
+   23.234.30.58  github.global.ssl.fastly.net
+   13.250.177.233 github.com
+
+9 快速打开文件目录：
+   win + e
+10 查看端口是不是打开：
+   netstat -ano | findstr "5037"
