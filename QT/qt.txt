@@ -78,3 +78,7 @@
 10 map转化为string
     QJsonDocument json = QJsonDocument::fromVariant(op);
     QString str = json.toJson();
+
+11 列表数据再界面上显示：
+    （1）后端传过来，列表数据： ll， 
+    （2）自定义组件： 

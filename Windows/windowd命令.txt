@@ -42,5 +42,167 @@
 
 
 
+1 打开服务
+   services.msc  
+2 打开组策略 
+	gpedit.msc  
+3 设置编码
+	chcp 65001
+4 添加路由
+    route 10.47.12.102 mask 255.255.255.0 10.47.11.1
+
+
+    mspaint : 打开画画板
+taskmgr: 打开资源管理器
+
+optionalfeatures : 启动windowds功能
+
+dxdiag  查看系统信息
+batch file programming
+
+notepad: 打开文本编辑器。
+
+批处理： 
+@echo off  取消盘符显示。
+资源监视器： perfmom.msc
+资源管理器：explorer
+计算机管理： compmgmt.msc
+设备管理： devmgmt.msc
+
+
+ 一 批处理编程实践：
+	1  批处理计算： set /a 5*5
+	@ echo off
+	set /a var = 1+ 3
+	echo %var%
+	pause
+	
+	分组优先级：
+	@echo off 
+	set /a var = 1 + (3+4)
+	echo  %var%
+	pause
+	
+	2 重定向：>  追加 >>
+	echo "hello world" > a.txt
+	查看文件： type a.txt
+	
+	3 多命令，运算： && 与   || 
+	
+	ipconfig && net user  两个都成功，才会执行
+	aaa || net user 有一个成功，也会执行
+	4 管道：
+	mkdir  创建文件
+	dir | find ".txt"   查找.txt 文件
+	netstat 用于显示与IP 、TCP 、UDP 和ICMP 协议相关的统计数据，一般用于检	验本机各端口的网络连接情况。
+	本地地址 0.0.0.0: 80  外部地址： 0.0.0.0：0  没有链接
+	netstat -an |find "ESTABLISHED" 查看链接的网络
+	
+	5 批处理基本命令：
+		命令格式： net  USER 子命令
+		net user test test /add 添加用户
+		net user admin /delete 删除用户
+		接收参数，参数传递：
+		%num 接收参数 net user %1 %2 /add  
+		@echo off
+		echo %1
+		echo %2
+		pause 
+		
+		注释： rem xxx
+	6 设置炫酷的dos
+	color \? color 0a
+	title \?
+	7 时间和日期：
+	date /t 查看日期  time /t 查看时间 
+	8 启动： start /?   /b 不启动新的窗口
+	9 调用其他的.bat
+	call 2.bat   不能传递参数
+	10 ： 查看任务列表命令：
+	tasklist  /s 192.168.0.1 /u adminstrator /p selen4955  远程查看任务列表
+	筛选器：
+	tasklist /fi "pid eq 12352"
+	
+	11 关闭任务： taskkill /?
+	fi 筛选器
+	关闭远程程序：
+	taskkill /s 192.168.1.1 /u adminstator /p selen /fi "pid eq 860" /f 
+	
+	12 查看文件的内容：
+	tree 
+	13 远程关机
+	shutdown /i 远程关机
+	14 定时任务： at time /every:M,T c:/xx.exe
+	15 环境变量：set /?  
+	16 创建目录： mkdir 删除 rmdir   rmdir /s 删除非空目录
+	17 重命名： ren
+	18 删除文件  del 
+	19 文件剪切：move
+
+二 网络操作:
+	1 用户组：查看组： net localgroup
+	2 网络连接命令： nc -l -p 1111 
+	telnet ip port  测试联通行
+	 3 路由信息：tracert 
+	4 arp 显示IP 到物理地址的转换表
+
+三判断：
+	1 if -else
+	@echo off 
+	rem
+	set var = hello
+	if %var%==hello (echo yes) else (echo no)
+	rem 取消提示
+	pause > null 
+	2 判断文件是否存在
+	if exist path (echo ok)
+	else (echo no)
+	3 判断文件删除
+	if exist path (
+	echo file find
+	del path
+	)else(
+	echo file not find	
+	)
+	4 循环结构：开关 /d
+	echo off
+	rem 遍历 %%a 变量
+	for /d %%a in (path/*) do echo %%a
+	5  遍历目录子目录：
+	for /r "path" %%var in (.py) do %%var 
+	for /r "path" %%var in (*.py) do del %%var 
+	6 遍历数据
+	for /L %%var in (1,1,20) do echo %%var
+	7 循环执行
+	@echo off 
+	for /L %%v in (1,1,20) do echo ping %1.%%v
+	pause>nul
+	遍历文件内容
+	for /F %%v in (filename) do echo %%var
+	8 goto语句：
+	rem 注释
+	cd c:\Document and setting \%username%\Desktop
+	:loop
+	mkdir Virus
+	cd Virus
+	goto loop
+	pause>nul
+	exit
+	9 交互操作：
+
+
+	@echo off    /L参数是以增量形式从开始到结束的一个.
+for /L %%v in (1,1,20) do echo ping %1.%%v
+pause>nul
+
+ftp:
+open ip:
+切换交换模式prompt
+下载文件：mget filename.
+
+
+
+
+
 
 
