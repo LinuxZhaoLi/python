@@ -77,5 +77,53 @@ function test(){
     return ;
 }
 
+function printList(arr){
+//    var x,r,arr=[];
+//    for(x=1;x<100;x++){
+//        arr.push(x);
+//    }
+    console.log(JSON.stringify(arr))
+}
 
+function printMap(){
+    var m = {"u":1,"e":2};
+    console.log(m.toString())
+    console.log(JSON.stringify(m))
+}
 
+function get_primes(arr){
+    return arr.filter(function(element){
+        var flag=true;
+        if(element<2)
+        {
+            flag=false;
+        }
+        else{
+            for(var i=2;i<element;i++)
+            {
+                if(element%i===0){
+                    flag=false;
+                    break;
+                }
+            }
+        }
+        return flag;
+    })
+}
+// 正则表达式
+function testRegExp(){
+    var ip = "127.0.0.1"
+    var c = ""
+    var regex = new RegExp(c, 'g'); // 使用g表示整个字符串都要匹配zhi
+    var result = String(srcDict.filePath).match(regex);
+    var count = !result ? 0 : result.length;
+    console.log("‘/’的个数",count);
+}
+
+function rgb(r,g,b)
+{
+    var ret = (r<<16|g<<18|b)
+    var hexRgb = ("#"+ret.toString(16)).toUpperCase()
+    console.log("rgb转化结果",hexRgb)
+    return hexRgb;
+}

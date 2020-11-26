@@ -118,51 +118,20 @@ ApplicationWindow {
     title: qsTr("JSConsole")
     width: 640
     height: 480
-    onVisibleChanged:{
-//        Util.test();
-
-    }
 
     Component.onCompleted: {
 
-        function get_primes(arr){
+        var arr = [1,2,3,4,5,6,7,8,9,90]
+        var r = Util.get_primes(arr)
+        Util.printList(r)
 
-            return arr.filter(function(element){
-                var flag=true;
-                if(element<2)
-                {
-                    flag=false;
-                }
-                else{
-                    for(var i=2;i<element;i++)
-                    {
-                        if(element%i===0){
-                            flag=false;
-                        break;
-                                    }
-                    }
-            }
-            return flag;
-        })
+        var str = "1元";
+        if(str.match("元"))
+            {
+        console.log("匹配")
+        }else{
+            console.log("不匹配")
         }
-
-        var x,r,arr=[];
-        for(x=1;x<100;x++){
-            arr.push(x);
-        }
-
-        console.log(JSON.stringify(arr))
-
-        r = get_primes(arr)
-        var m = {"u":1,"e":2};
-        console.log(m.toString())
-       console.log(JSON.stringify(m))
-
-
-        /**
-         * 在外部通过点语法添加
-         */
-
     }
 
     menuBar: MenuBar {
@@ -246,5 +215,7 @@ ApplicationWindow {
         var data = Util.call(exp);
         outputModel.insert(0, data)
     }
+
+
 }
 

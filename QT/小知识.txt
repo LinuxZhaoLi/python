@@ -1,0 +1,27 @@
+1 windows 打包：
+    windeployqt xxx.exe
+2 错误： module "QtQuick" version 2.12 is not installed
+    编译器不对
+3 QBS（Qt Build Suite）同 qmake、cmake 之类一样都是构建工具。
+
+4 Qt Design Studio： 界面设计工具
+5 CONFIG -= debug_and_release ： 关闭创建dubug, realese 文件夹
+
+6 同时开启对各qt程序： 添加环境变量 C:\Qt\Qt32\Qt5.6.0\5.6\msvc2013\bin
+    使用cmd 
+7 快速折叠代码： toggle fold all 
+
+8 QT 卡死解决方案： 
+（1）把QTcreator单独强制设置为集显就行了，这样全局依然可以选择高性能显卡。
+（2） 删除~\AppData\Roaming\QtProject
+
+9 注册类到qml 中：
+    qmlRegisterType<Mytype>("mytype", 1, 0, "Mytype");
+10 cmake version： 3.17.2
+
+11 pro文件打印信息
+    message("PWD=" $$PWD)
+
+12 qtHaveModule(name) 检查按名称指定的Qt模块是否存在
+    TEMPLATE = subdirs
+    SUBDIRS = pinchzoom fingerpaint knobs dials
