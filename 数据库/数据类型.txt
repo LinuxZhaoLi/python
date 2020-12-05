@@ -13,3 +13,14 @@
     flush privileges; 特权
 4 跳过密码验证：
     skip-grant-tables;
+
+5 查看数据库：
+    show databases;
+6 查看数据使用端口：
+    show variables like 'port'
+7 查看数据库表：
+    show tables;
+8 删除数据库：
+    drop database databaseName;
+9 查看数据使用端口：
+     netstat -anp|grep 3306

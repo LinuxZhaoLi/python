@@ -1,0 +1,110 @@
+
+adb 连接手机：
+    （1）创建连接
+        adb connect ip:port
+    （2） 断开连接
+        adb disconnect ip : port 
+     (3)  打开服务
+        adb tcpip port
+andorid studio 配置genymotion 
+https://blog.csdn.net/wyf2017/article/details/81540712
+
+andorid studio: file ---> plugin ---> genymotion --> install 
+
+OpenJDK 8
+Oracle Java 8
+
+。JRE是Java虚拟机（JVM）的一种实现，
+它允许您运行已编译的Java应用程序和applet。JDK包括JRE及开发和编译Java应用所需的其他软件。
+
+(1) 安装JRE
+sudo dnf install java-1.8.0-openjdk
+(2) 安装jdk
+sudo dnf install java-1.8.0-openjdk-devel
+
+package animal;
+
+public interface Animal{
+
+    public void eat();
+    public void sleep();
+}
+
+
+andorid虚拟机：
+genymotion: 账号： countryboy888
+安装virtualBox
+
+第一步： 安装sdk 
+
+
+ndk-build 工具链： 编译工具。
+跨平台开发：
+    linux X86 CPU   linux ARM CPU  
+创建jni过程：
+1 创建jni文件夹
+2 创建Andorid.mk
+    LOCAL_PATH:= $(call my-dir)
+    include #(CLEAR_VARS)
+    # libmyJni.so
+    LOCAL_MODULE: = myJni   模块名字
+    LOCAL_SRC_FILES : = test.cpp   资源文件
+    LOCAL_LDLIBS: = -llog
+    include $(BUILD_SHARED_LIBRARY)
+
+app文件夹下的: build-grade 配置文件。
+andorid 作用域中修改：
+    sourceSets{
+        // 表示 生成的so位置
+        main.jinLibs{
+            source {
+                srcDirs = ['../libs']
+            }
+        }
+    }、
+    // 
+    externalNativeBuild{
+        ndkbuild{
+            path{
+                srcDirs = ['../JNI/Android.mk']
+            }
+        }
+    }
+创建一个单独调用jni的类；
+
+调用库：
+public class OBOJNI{
+    // 单例模式
+public statis OBOJNI getInstance(){
+if(instance == null)
+{
+    instance = new OBOJNI();
+}
+retuen instance;
+}
+// 提供一个调用jni的接口
+public native void hello_jni();
+
+
+private static OBOJNI instance = null;
+static{
+    // 加载库函数
+    System.loadLibrary("testjni")
+}
+
+
+}
+
+    
+
+
+
+AVD模拟器一直处于开机状态打不开的解决办法:
+(1) 选择sdk Manager打开，选中Android sdk  看右边Android Emulator是否打对勾
+(2) 降低api 版本，减小ram 内存
+
+
+java开发环境：
+第一步： 安装jdk  添加环境变量 java的解释器，编译器  
+
+andorid studio: 

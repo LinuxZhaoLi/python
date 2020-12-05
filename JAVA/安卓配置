@@ -1,0 +1,14 @@
+1 error: device unauthorized.：
+    需要在手机上确认。
+
+2 常用adb命令：
+
+adb start-server
+adb kill-server
+adb devices 查看系统是否识别设备(List of devices attached 是没有识别到设备)
+adb logcat -c 清除旧日志信息
+adb logcat -v time >.\logcat.log 开始抓取日志，>：代表输出到.\logcat.log(adb logcat -v time：是开始抓取日志命令)
+
+
+3 error: more than one device/emulator
+adb -s xxxxxx shell ps 21190  指定adb命令的设备。

@@ -52,3 +52,5 @@
 
 强制类型转化：
 1, static_cast  2, const_cast 3, reinterpret_cast 
+
+

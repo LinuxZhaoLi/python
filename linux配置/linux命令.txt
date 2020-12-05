@@ -108,3 +108,23 @@ chkconfig mysqld on        #设定mysqld在各等级为on，“各等级”包�
     （2）vim ~/.bashrc   source ~/.bash_profile
     某个项目下定义uusama.profile，在这个文件中使用export定义一系列变量，然后在~/.profile文件后面加上：sourc uusama.profile，
     这样你每次登陆都可以在Shell脚本中使用自己定义的一系列变量。
+
+7 uname  -r  查看系统版本
+    mkdir -p /tmp/a/b  创建指定目录文件
+    ln -s /xxx.txt /Desktop  创建连接
+    cat -n /xxx.txt |more 分页查看
+    Linux grep 命令用于查找文件里符合条件的字符串。
+    awk 过滤字段 $11 以空格作为分隔符 第11个字段输出
+    Linux dd命令用于读取、转换并输出数据。
+
+    要求过滤出第4个字段
+    awk  '{print $4}'  test.txt
+    rpm -qa | grep lftp  不显示内容表示没安装lftp软件
+     rpm -qpi lftp-4.0.9-14.el6.x86_64.rpm
+     rpm  -e  lftp  卸载软件
+
+    linux操作系统的软件安装 http-2.2.15.tar.gz   
+    yum install  wireshark-gnome  安装抓包软件
+    rpm -ivh xxx.rpm  正常安装。
+    which vi
+    /etc/init.d/network restart  重启网络服务

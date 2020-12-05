@@ -29,6 +29,40 @@ advanced ip scanner: 网络扫描工具。
 看客节点：
  https://www.bilibili.com/video/BV1bt411c7fC?p=13
 
+测试摄像头： $raspistill -v -o test.jpg
 
+人脸识别三个阶段：
+    （1） 人脸的检测和数据收集
+    （2） 训练识别器
+    （3） 人脸识别
+
+(1) 安装opencv  
+     1 $ sudo raspi-config 树莓派上拓展文件系统，选择第一个选项“A1.Expand Filesystem”
+
+    1 $ sudo apt-get purge wolfram-engine
+    2 $ sudo apt-get purge libreoffice*
+    3 $ sudo apt-get clean
+    4 $ sudo apt-get autoremove
+
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_INSTALL_PREFIX=/usr/local \
+-D OPENCV_EXTRA_MODULES_PATH=/home/openvn/opencv_contrib-3.4.3/modules \
+-D INSTALL_PYTHON_EXAMPLES=ON \
+-D INSTALL_CXX_EXAMPLES=ON \
+-D BUILD_EXAMPLES=ON .. 
+-D BUILD_opencv_python3=yes \
+
+-D PYTHON3_EXECUTABLE=/home/qy/software/anaconda3/envs/machineLearning/bin/python3.6m
+
+$ cd build
+cmake -D BUILD_opencv_python3=yes 
+-D BUILD_opencv_python2=no 
+-D PYTHON3_EXECUTABLE=/home/qy/software/anaconda3/envs/machineLearning/bin/python3.6m 
+-D PYTHON3_INCLUDE_DIR=/home/qy/software/anaconda3/envs/machineLearning/include/python3.6m
+ -D PYTHON3_LIBRARY=/home/qy/software/anaconda3/envs/machineLearning/lib/libpython3.6m.so 
+ -D PYTHON3_NUMPY_INCLUDE_DIRS=/home/qy/software/anaconda3/envs/machineLearning/lib/python3.6/site-packages/numpy/core/include 
+ -D PYTHON3_PACKAGES_PATH=/home/qy/software/anaconda3/envs/machineLearning/lib/python3.6/site-packages 
+ -D PYTHON_DEFAULT_EXECUTABLE=/home/qy/software/anaconda3/envs/machineLearning/bin/python3.6m ..
 
 

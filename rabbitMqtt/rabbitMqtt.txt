@@ -46,4 +46,6 @@ Job for rabbitmq-server.service failed. See "systemctl status rabbitmq-server.se
     firewall-cmd --permanent --add-port=5672/tcp
 
 
+8  systemctl status rabbitmq-server.service 
+
 

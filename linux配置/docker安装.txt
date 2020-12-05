@@ -1,0 +1,85 @@
+1 开启： 
+    systemctl start docker
+    systemctl enable docker
+
+1  开源的应用容器引擎
+2 应用：
+    (1): Web 应用的自动化打包和发布。
+    (2): 在服务型环境中部署和调整数据库或其他的后台应用
+    (3):从头编译或者扩展现有的 OpenShift 或 Cloud Foundry 平台来搭建自己的 PaaS 环境。
+    (4):PAAS平台即(Platform-as-a-Service：平台即服务)，把应用服务的运行和开发环境作为一种服务提供的商业模式。
+    
+安装系统：
+    curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+
+Docker 镜像加速： 拉取镜像。
+        sudo mkdir -p /etc/docker
+        sudo tee /etc/docker/daemon.json <<-'EOF'
+        {
+        "registry-mirrors": ["https://20yt0e50.mirror.aliyuncs.com"]
+        }
+        EOF
+        sudo systemctl daemon-reload
+        sudo systemctl restart docker
+
+（1）怎么查看docker 客户端的版本。docker -version, docker  info 
+(2) tee 命令： 将终端输入数据到文件。
+（3）运行程序： docker run ubuntu:15.10 /bin/echo "Hello world" 以上命令完整的意思可以解释为：Docker 以 ubuntu15.10 镜像创建一个新容器，然后在容器里执行 bin/echo "Hello world"，然后输出结果。
+（4）前台运行： 交互式的容器：
+    docker run -it ubuntu:15.10 /bin/bash  
+        -t: 在新容器内指定一个伪终端或终端。
+        -i: 允许你对容器内的标准输入 (STDIN) 进行交互。
+（5）后台运行： 
+    docker run -d ubuntu:15.10 /bin/bash "while True; do echo hello world ; sleep 1; done"
+    docker run -itd --name ubuntu-test ubuntu  /bin/bash
+
+(6) docker ps 查看docker 运行情况
+（7） 查看终端输出： docker logs id,name 
+(8) docker pull 加载合并 ubuntu
+(9) 启动已经创建的镜像文件： docker start id,name
+(10) 导出容器： docker export id.name ubuntu.tar 
+(11) 进入虚拟机的终端： docker exec -it ubuntu-test /bin/bash
+(12) 导出容器  docker export  id,name  ubuntu.tar
+(13) 导入容器快照： cat docker/ubuntu.tar |docker import -test/ubuntu:v1 
+(14) 载入镜像：  docker pull training/webapp 
+(15) 运行镜像：  docker run -d -P training/webapp python app.py   -P:将容器内部使用的网络端口随机映射到我们使用的主机上
+(16) 指定端口： docker run -d -p 5000:5000 training/webapp python app.py
+(17) 网络端口的快捷方式: docker port bf08b7f2cd89
+(18) 查看日志： docker logs -f bf08b7f2cd89 
+(18) 查看进程： docker top wizardly_chandrasekhar
+(19) 查找镜像： docker search httpd
+(20) 删除镜像：  docker rmi hello-world
+(21) 创建镜像： 
+    (1) 更新镜像前需要创建一个容器： apt-get update
+            提交镜像： docker commit -m="has update" -a="runoob" e218edb10161 runoob/ubuntu:v2  -a 指定作者。 创建镜像名runoob/ubuntu:v2
+    (2) 使用使用命令 docker build   创建： Dockerfile   docker build -t runoob/centos:6.7 . 
+        FROM    centos:6.7                  指定使用哪个镜像源
+        MAINTAINER      Fisher "fisher@sudops.com"
+
+        RUN     /bin/echo 'root:123456' |chpasswd
+        RUN     useradd runoob
+        RUN     /bin/echo 'runoob:123456' |chpasswd
+        RUN     /bin/echo -e "LANG=\"en_US.UTF-8\"" >/etc/default/local
+        EXPOSE  22
+        EXPOSE  80
+        CMD     /usr/sbin/sshd -D
+(22) 设置镜像标签： docker tag 860c279d2fec runoob/centos:dev
+(23) 网络端口映射： docker run -d -P training/webapp python app.py  -P 随机映射到主机端口， -p 指顶端口
+(24) 指定udp docker run -d -p 127.0.0.1:5000:5000/udp training/webapp python app.py
+(25) docker 容器互联： 
+    命名容器： docker run -d -P --name runoob training/webapp python app.py
+(26) 创建新的docker 网络： docker network create -d bridge test-net  -d 指定网络类型
+(27) 在镜像中安装： 
+    apt-get update
+    apt install iputils-ping
+（28） 仓库管理： 
+    docker login 
+(29) 修改标签：  docker tag ubuntu:18.04 username/ubuntu:18.04
+(30) 上传镜像： docker push username/ubuntu:18.04
+(31) 构建镜像： docker Dockerfile：
+    (1)定制一个nginx镜像：
+        FROM nginx
+        RUN echo '这是一个本地构建的nginx镜像' > /usr/share/nginx/html/index.html
+    (2) docker build -t nginx:v3 .
+
+

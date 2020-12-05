@@ -1,0 +1,21 @@
+(1) 新建一个CMakeList.txt
+project(hello)  # 项目名字  可执行文件名字
+set(SRC_LIST main.c)  # 资源文件 ，定义变量
+add_executable(hello ${SRC_LIST})  #  使用给定的源文件，为工程引入一个可执行文件
+（2） 新建一个build文件夹
+(3) 使用cmake .. 构建
+
+
+cmake 版本过低：
+    cmake --version
+卸载
+    sudo apt-get autoremove cmake
+下载：
+    cd ~
+    wget https://cmake.org/files/v3.13/cmake-3.13.2.tar.gz
+    tar xvf cmake-3.13.2.tar.gz
+    cd cmake-3.13.2
+安装：
+    ./bootstrap --prefix=/usr
+    make
+    sudo make install

@@ -1,0 +1,16 @@
+（1） 怎么查看安卓设备是否root?
+    adb shell 进入linux命令行： # 代表已经root $ 代表没有root权限
+（2） 退出adb shell  ctrl + c  输入exit;
+
+(3) 列出所用应用的包名， adb shell pm list package -s (系统应用) -3 （第三方应用） -f 
+    列出包名 存放位置 -i 列出包名及来源
+
+(4) 截图命令： adb shell screencap -p /sdcard/xx.png
+(5) 获取系统版本： adb shell getprop ro.build.version.release
+(6) 安装apk , adb install -t xx.apk
+
+
+Linux localhost 3.10.49 #59 SMP PREEMPT Sat May 18 14:53:14 CST 2019 armv7l unknown。
+对称多处理"（Symmetrical Multi-Processing）简称SMP，是指在一个计算机上汇集了一组处理器(多CPU),
+各CPU之间共享内存子系统以及总线结构。它是相对非对称多处理技术而言的、应用十分广泛的并行技术。
+preempt，英语单词，主要用作及物动词，作及物动词时译为“先占；先取；以先买权获得”

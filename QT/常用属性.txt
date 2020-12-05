@@ -1,2 +1,8 @@
 Label ： 属性、
-      font.letterSpacing:letterSpacing
+      font.letterSpacing:letterSpacing  //字体间距
+
+动态的添加tabView
+
+第一步：
+      自定一个组件
+      
