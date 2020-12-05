@@ -1,0 +1,1078 @@
+1 虚拟机需要按下ctrl + D?
+xfs_repair -v -L /dev/dm-0
+(2)  虚拟机可以添加磁盘。
+    编辑虚拟机设置，硬盘
+
+
+172.16.34.220  hm.2020
+
+
+netstat -ln | grep 3306
+   75  cat >> /etc/my.cnf <<EOF
+   76  validate_password=off
+   77  default-storage-engine=INNODB
+   78  character-set-server=utf8
+   79  collation-server=utf8_general_ci
+   80  validate_password=off
+   81  EOF
+   82  systemctl restart mysqld
+   83  cat /var/log/mysqld.log|grep "passwd"
+   84  cat /var/log/mysqld.log
+   85  vim /var/log/mysqld.log
+   86  mysql -u root -ptm/YKpYpF8y
+   87  cat >> /etc/my.cnf <<EOF
+   88  skip-grant-tables
+   89  EOF
+   90  systemctl restart mysqld
+   91  vim /etc/my.cnf
+   92  systemctl restart mysqld
+   93  vim /etc/my.cnf
+   94  systemctl restart mysqld
+   95  vim /etc/my.cnf
+   96  systemctl restart mysqld
+   97  mysql -u root -p
+   98  vim /etc/my.cnf
+   99  mysql -u root -phm@hf
+  100  yum -y isnatll gcc-c++
+  101  yum install -y gcc-c++
+  102  curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+  103  yum install -y nodejs
+  104  node -v
+  105  npm -v
+  106  sed -i 's/python/python2.7/' /usr/bin/yum
+  107  sed -i 's/python/python2.7/' /usr/libexec/urlgrabber-ext-down
+  108  cd /etc/yum.repos.d/
+  109  mv CentOS-Base.repo  CentOS-Base.repobak
+  110  wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+  111  yum clean all
+  112  yum makecache
+  113  yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
+  114  wget  https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
+  115  tar -xvf Python-3.7.2.tgz 
+  116  cd Python-3.7.2/
+  117  ./configure --prefix=/usr/local/python3.7.2
+  118  make
+  119  ./configure --enable-optimizations --prefix=/usr/local/python3.7.2
+  120  make altinstall
+  121  rm -rf /usr/bin/python
+  122  ln -s /usr/local/python3.7.2/bin/python3.7 /usr/bin/python
+  123  python3
+  124  python
+  125  vim /etc/yum.repos.d/rabbitmq_erlang.repo
+  126  yum -y install erlang -y
+  127  yum -y install socat
+  128  cd
+  129  mkdir rabbit
+  130  cd rabbit/
+  131  wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.2/rabbitmq-server-3.8.2-1.el6.noarch.rpm
+  132  rpm -ivh rabbitmq-server-3.8.2-1.el6.noarch.rpm
+  133  systemctl start rabbitmq-server
+  134  systemctl enable rabbitmq-server
+  135  rabbitmq-plugins enable rabbitmq_management
+  136  rabbitmqctl add_user HMRabbit hmzz
+  137  rabbitmqctl set_user_tags HMRabbit administrator
+  138  rabbitmqctl set_permissions -p / HMRabbit ".*" ".*" ".*"
+  139  cd ..
+  140  mkdir redis
+  141  cd redis/
+  142  wget http://download.redis.io/releases/redis-5.0.6.tar.gz
+  143  tar -zxvf redis-5.0.6.tar.gz
+  144  yum install gcc
+  145  cd redis-5.0.6
+  146  make MALLOC=libc
+  147  cd src && make install
+  148  mkdir -p /etc/redis
+  149  cp /root/redis/redis-5.0.6/redis.conf  /etc/redis/6379.conf
+  150  cp /root/redis/redis-5.0.6/utils/redis_init_script  /etc/init.d/redisd
+  151  chkconfig redisd on
+  152  service redisd start　
+  153  ps -ef |grep redis
+  154  netstat -lntp | grep 6379
+  155  yum -y install vsftpd
+  156   rpm -ql vsftpd|more
+  157    systemctl restart vsftpd.service
+  158   service vsftpd.service start
+  159   ps -ef|grep vsftp
+  160      netstat -tunlp|grep 21
+  161  yum -y install ntp ntpdate
+  162  cd ..
+  163  mkdir /root/QT
+  164  cd QT/
+  165  wget http://iso.mirrors.ustc.edu.cn/qtproject/archive/qt/5.12/5.12.0/qt-opensource-linux-x64-5.12.0.run
+  166  chmod +x qt-opensource-linux-x64-5.12.0.run
+  167  rm -rf qt-opensource-linux-x64-5.12.0.run 
+  168  rz
+  169  chmod +x qt-opensource-linux-x64-5.12.0.run 
+  170
+  171  cd /home
+  172
+  173  cd hm
+  174  los
+  175
+  176  sl
+  177
+  178  cd ..
+  179
+  180  ping www.baidu.com 
+  181  rabbitmqctl status 
+  182  rabbitmqctl list_users
+  183  rabbitmqctl change_password HMRabbit 'hmnc'
+  184  su hm
+  185  mysql 
+  186  mysqld 
+  187  ps -a |grep mysql 
+  188
+  189  cd /etc
+  190
+  191  cat my.cnf
+  192
+  193  cat my.cnf
+  194  mysql -u root -p
+  195  mysql -u root -p hm.2020
+  196  cat my.cnf
+  197  vi my.cnf
+  198  net restart mysql 
+  199  net stop mysql 
+  200  service stop mysql 
+  201  Access denied for user 'root'@'localhost' (using password: YES)
+  202  systemctl restart mysql 
+  203  systemctl stop mysql 
+  204  systemctl restart mysql
+  205  systemctl start  mysql
+  206  service mysqld restart
+  207  mysql -u root -p 
+  208  cat  my.cnf
+  209  init 0
+  210  ping 172.16.34.1
+  211  ping 172.16.34.200
+  212  ping 172.16.34.220
+  213  ping 172.16.34.1
+  214  init 0
+  215  ping 172.16.34.220
+  216  ping 172.16.34.1
+  217  ping www.baidu.com
+  218  ping 172.16.34.1
+  219  service network restart
+  220  ping 172.16.34.1
+  221  init 0
+  222  service network restart
+  223  ifconfig
+  224  vim /etc/sysconfig/network-scripts/ifcfg-ens3 
+  225  ping www.baidu.com
+  226  vim /etc/sysconfig/network-scripts/ifcfg-ens3 
+  227  service network restart
+  228  ping 172.16.34.1
+  229  ping 172.16.34.220
+  230  init 0
+  231  service network restart
+  232  ifconfig
+  233  vim /etc/sysconfig/network-scripts/ifcfg-ens3 
+  234  ping www.baidu.com
+  235  vim /etc/sysconfig/network-scripts/ifcfg-ens3 
+  236  service network restart
+  237  ping 172.16.34.1
+  238  ping 172.16.34.220
+  239  init 0
+  240  ping 172.16.34.1
+  241  ping 172.16.34.220
+  242  ifconfig
+  243  ping www.baidu.com
+  244  init 0
+  245  ifconfig
+  246  ping 172.16.34.1
+  247  route
+  248  service network restart
+  249  route
+  250  ping 172.16.34.1
+  251  service network restart
+  252  ping 172.16.34.1
+  253  route
+  254  vim /etc/sysconfig/network-scripts/ifcfg-ens3 
+  255  vim /etc/sysconfig/network-scripts/ifcfg-Wired_connection_1 
+  256
+  257  cd /etc/sysconfig/network-scripts/
+  258
+  259  mv ifcfg-Wired_connection_1 ifcfg-Wired_connection_1.bak
+  260
+  261  vim ifcfg-ens3 
+  262  service network restart
+  263
+  264  route
+  265  ping 172.16.34.1
+  266  ping 172.16.34.220
+  267  nmcli device
+  268  ping 172.16.34.1
+  269  ping 172.16.3212
+  270  ping 172.16.34.212
+  271  ping 172.16.34.220
+  272  ping 172.16.34.22
+  273  ping 172.16.34.200
+  274  init 0
+  275  cat vsftpd.conf 
+  276  useradd -s /sbin/nologin -d /home/ftpuser ftpuser
+  277  passwd ftpuser 
+  278  passwd ftpuser
+  279  chmod o+w /home/ftpuser/
+  280  service vsftpd restart 
+  281
+  282  netstat -antup | grep ftp
+  283
+  284  cd ..
+  285
+  286  cd vsftpd/
+  287
+  288  exit 
+  289
+  290  rm ftpuser/
+  291  rm -r ftpuser/
+  292
+  293  rm -rf ftpuser/
+  294
+  295  cd /etc/vsftpd/
+  296
+  297  vi vftpuser.txt
+  298
+  299  db_load -T -t hash -f /etc/vsftpd/vftpuser.txt   /etc/vsftpd/vftpuser.db
+  300
+  301  cat /etc/pam.d/vsftpd
+  302  vi  /etc/pam.d/vsftpd
+  303  adduser ftpuser -d /home/ftpuser -s /sbin/nologin
+  304  passwd ftpuser
+  305
+  306  vi vsftpd.conf 
+  307  cat vsftpd.conf 
+  308
+  309  mkdir /etc/vsftpd/conf
+  310
+  311  vi  /etc/vsftpd/conf/ftpuser
+  312  cat conf/ftpuser 
+  313  mkdir local_root=/home/ftpuser/
+  314  mkdir /home/ftpuser/update
+  315  mkdir /home/ftpuser
+  316  service vsftpd restart 
+  317  pwd 
+  318
+  319  systemctl start vsftpd
+  320  systemctl status  vsftpd
+  321
+  322  cat conf/ftpuser 
+  323
+  324  cat vftpuser.txt 
+  325
+  326  cat conf/ftpuser 
+  327  passwd ftpuser
+  328  chkconfig vsftpd on
+  329  systemctl enable vsftpd.service
+  330  systemctl status  firewalld
+  331  systemctl stop firewalld
+  332  systemctl status  firewalld
+  333  vi  /etc/sysconfig/selinux
+  334  
+  335  systemctl restart vsftpd
+  336  systemctl status  vsftpd
+  337
+  338  cd conf/
+  339
+  340  cat ftpuser 
+  341  cd /etc/pam.d/
+  342
+  343  cat vsftpd 
+  344  ftp 127.0.0.1 
+  345  cd /etc/pam.d
+  346  cat vsftpd 
+  347  vi vsftpd 
+  348  cd /etc/vsftpd
+  349
+  350  systemctl restart vsftpd
+  351  systemctl status  vsftpd
+  352  yum install -y subversion
+  353  svnserve --version
+  354
+  355  cd hm
+  356
+  357  mkdir wrk 
+  358
+  359  cd wrk/
+  360
+  361  mkdir NanChangSC
+  362
+  363  cd NanChangSC/
+  364
+  365  pwd 
+  366
+  367  svn checkout http://192.168.1.254:8080/svn/NanChang/Line3/Source/srv/SNC
+  368
+  369  cd SNC/
+  370
+  371  cd /home 
+  372
+  373 ftpuser/
+  374  cd ftpuser/
+  375  pwd 
+  376
+  377  mkdir update 
+  378
+  379  chmod 7 update/
+  380
+  381  chmod 777 update/
+  382
+  383  cd /etc/vsftpd/
+  384
+  385  vim /etc/pam.d/vsftpd 
+  386  systemctl restart vsftpd
+  387  systemctl stop firewalld
+  388
+  389  vim vsftpd.conf 
+  390  cd /home/
+  391
+  392  usermod -r ftpuser
+  393  userdel ftpuser
+  394
+  395  rm -rf ftpuser
+  396
+  397  adduser ftpuser -d /home/ftpuser -s /sbin/nologin
+  398
+  399  systemctl restart vsftpd
+  400  cd /etc/
+  401  cd vsftpd/
+  402
+  403  vim vftpuser.txt 
+  404  vin user_list 
+  405  vim user_list 
+  406
+  407  cd conf
+  408
+  409  vim ftpuser 
+  410  systemctl restart vsftpdtpd 
+  411  systemctl restart vsftpd 
+  412
+  413  cat ftpuser 
+  414 /home 
+  415  exit 
+  416  chmod 777 -R ftpuser/
+  417
+  418  cd ftpuser/
+  419
+  420  mkdir update 
+  421
+  422  mkdir Parameter;mkdir Register;
+  423
+  424  mv Parameter/ update/
+  425  mv Register/ update/
+  426
+  427  cd update/
+  428
+  429  mkdir Revenue
+  430
+  431  mkdir Soft
+  432  mkdir Transaction
+  433
+  434
+  435  cat /etc/vsftpd/vsftpd.conf 
+  436
+  437  cd ..
+  438
+  439  cd update 
+  440
+  441  cd ..
+  442
+  443  chmod 777 -R update 
+  444
+  445  cd update/
+  446
+  447  cd
+  448  vim .bash_alias
+  449  vim .bash_profile 
+  450  vim .bash_alias
+  451  vim .bash_profile 
+  452  vim /etc/profile
+  453  reboot 
+  454  chmod 777 -R bin/
+  455  echon $HM_SC_ROOT 
+  456  echo  $HM_SC_ROOT 
+  457  cd $HM_SC_ROOT 
+  458  cat /etc/profile
+  459  vim /etc/profile
+  460  cat /etc/profile
+  461  cd $HM_SC_ROOT 
+  462  cd 
+  463  exit 
+  464  npm i
+  465  exit
+  466  pm2 -v
+  467  node -v
+  468  npm install -g pm2
+  469  cdd 
+  470
+  471  exit 
+  472  npm install serialport --save
+  473  exit
+  474  mv bin /home/bin
+  475
+  476  pwd 
+  477  cd /home
+  478
+  479  cd hm
+  480
+  481  rm -rf wrk/
+  482
+  483  mv ../bin/ ./bin
+  484
+  485  cd ..
+  486
+  487  cd hm
+  488
+  489  exit 
+  490  vim /etc/profile
+  491  source /etc/profile
+  492  exit
+  493  vim /etc/profile
+  494  chmod -R 777 ProcessedFile/
+  495  exit
+  496  cat ftpusers 
+  497  vim ftpusers 
+  498
+  499  cat vsftpd.conf 
+  500
+  501  cd conf/
+  502
+  503  cat ftpuser 
+  504  vim vsftpd.conf 
+  505
+  506  cd conf/
+  507
+  508  cat ftpuser 
+  509  cd ..
+  510
+  511  cat vsftpd.conf 
+  512
+  513  cat ftpusers 
+  514
+  515  cat user_list 
+  516
+  517  cat vftpuser.txt 
+  518
+  519  cd conf/
+  520
+  521  cat ftpuser 
+  522  cat /etc/profile
+  523
+  524  cd update/
+  525
+  526  cd /etc/
+  527
+  528  cd vsftpd/
+  529
+  530  
+  531
+  532  cd ..
+  533
+  534  vim /etc/pam.d/vsftpd
+  535  cd pam.d/
+  536
+  537  ifconfig
+  538  quit
+  539  exit
+  540
+  541  cd mysql_install/
+  542
+  543  cd ../QT/
+  544
+  545
+  546  cd ../
+  547
+  548  cd sc-test/
+  549
+  550  cd mock_test/
+  551
+  552  cd src/
+  553
+  554  cd ../
+  555  uname -a
+  556  head -n 1 /etc/issue
+  557  cat /proc/version
+  558
+  559  cd ..
+  560
+  561  cd ..
+  562
+  563  cd sc-test/
+  564
+  565
+  566  tar zcvf mock_test.tar.gz mock_test
+  567
+  568  pwd
+  569  rm -rf mock_test.tar.gz 
+  570
+  571  history
+  572  cat /etc/profile
+  573  cd /home/hm/wrk/HefeiSC/
+  574
+  575  history
+  576  cat /etc/profile
+  577
+  578  cd /home/hm/
+  579
+  580  cd wrk/
+  581
+  582  cd HefeiSC/
+  583
+  584
+  585  cd bin/
+  586
+  587
+  588  cd ini/
+  589  ;s
+  590
+  591  cat snc.ini 
+  592
+  593  history
+
+
+
+  奇虎云
+   1449  vim start.sh 
+ 1450  vim FaceCloud.py
+ 1451  ps -A
+ 1452  exit
+ 1453
+ 1454  ps aux|grep python3
+ 1455  kill -9 6658
+ 1456  ps aux|grep python3
+ 1457  
+ 1458
+ 1459  ps aux|grep start
+ 1460  ps aux|grep start.sh
+ 1461  ps aux|grep python3
+ 1462  c
+ 1463  
+ 1464
+ 1465  ps
+ 1466  ps -A
+ 1467  
+ 1468
+ 1469  python3 FaceFeature.py 
+ 1470  vim FaceFeature.py 
+ 1471  vim sendmq.py 
+ 1472  vim receivemq.py 
+ 1473 -ls
+ 1474  python3 receivemq.py 
+ 1475  vim receivemq.py 
+ 1476  python3 receivemq.py 
+ 1477  vim receivemq.py 
+ 1478  
+ 1479
+ 1480  sz FaceCloud.py
+ 1481  yum install lrzsz
+ 1482  sudo apt-get install lrzsz
+ 1483  apt-get install lrzsz
+ 1484  sudo apt-get install lrzsz
+ 1485
+ 1486  sz FaceCloud.py
+ 1487  c
+ 1488  
+ 1489
+ 1490  
+ 1491
+ 1492  
+ 1493
+ 1494  python3 FaceFeature.py 
+ 1495  c
+ 1496  python3 FaceCloud.py 
+ 1497  vim FaceCloud.py.bk 
+ 1498  ps aux|grep start.sh
+ 1499  kill -9 19050
+ 1500  ps aux|grep start.sh
+ 1501  c
+ 1502  
+ 1503
+ 1504  python3 FaceCloud.py 
+ 1505  vim FaceCloud.py 
+ 1506
+ 1507  
+ 1508
+ 1509  vim FaceCloud.py.bk 
+ 1510 -ls
+ 1511  sz FaceFeature.py c
+ 1512  
+ 1513
+ 1514  sz FaceCloud.py.bk 
+ 1515  vim FaceCloud.py.bk 
+ 1516  python3 sendmq.py 
+ 1517  c
+ 1518  
+ 1519  vim sendmq.py 
+ 1520  python3 sendmq.py 
+ 1521  
+ 1522
+ 1523  vim FaceCloud.py
+ 1524  python3 sendmq.py 
+ 1525  python3 FaceCloud.py 
+ 1526  C
+ 1527  CLAR
+ 1528  
+ 1529
+ 1530  python FaceFeature.py
+ 1531  python3 FaceFeature.py
+ 1532  python FaceFeature.py
+ 1533  python3 FaceFeature.py
+ 1534  ps -A
+ 1535  ps |grep *python
+ 1536  ps -A
+ 1537  kill 7596
+ 1538  ps
+ 1539  ps -A
+ 1540  ps |grep *sh
+ 1541  ps |grep *sh
+ 1542  kill 2437
+ 1543  ./start.sh  &
+ 1544  ps |grep *sh
+ 1545  kill 7088
+ 1546
+ 1547  cat start.sh 
+ 1548  cat FaceCloud.py
+ 1549  cat start.sh 
+ 1550
+ 1551  ./start.sh  
+ 1552  ps |grep *sh
+ 1553  kill 16566
+ 1554  ./start.sh  
+ 1555  ps |grep *sh
+ 1556  kill -9 16566  17447
+ 1557  ps |grep *sh
+ 1558  
+ 1559  ./start.sh  
+ 1560  ps |grep *sh
+ 1561  ./start.sh  
+ 1562  
+ 1563
+ 1564  python FaceFeature.py 
+ 1565  python3 FaceCloud.py 
+ 1566
+ 1567  
+ 1568
+ 1569  ps aux|grep python3
+ 1570  ps aux|grep python
+ 1571  c
+ 1572  
+ 1573
+ 1574  
+ 1575
+ 1576  python3 FaceCloud.py 
+ 1577
+ 1578  vim FaceCloud.py
+ 1579  python3 FaceCloud.py 
+ 1580
+ 1581  python3 FaceCloud.py 
+ 1582  c
+ 1583  
+ 1584
+ 1585  vim FaceCloud.py
+ 1586  python3 FaceCloud.py 
+ 1587  vim FaceCloud.py
+ 1588  python3 FaceCloud.py 
+ 1589  vim FaceCloud.py
+ 1590  ./start.sh 
+ 1591  cdp
+ 1592
+ 1593  vim start.sh 
+ 1594  ps aux|grep start.sh 
+ 1595  ps aux|grep start
+ 1596  nohup ./start.sh &
+ 1597
+ 1598  ps aux|grep start
+ 1599  ps aux|grep nohup.out 
+ 1600  ps aux|grep nohup
+ 1601  ps aux|grep no
+ 1602  ps aux|grep nohup
+ 1603  ps aux|grep start
+ 1604  history 
+ 1605  ps aux|grep python3
+ 1606  ps aux|grep nohup
+ 1607  ps aux|grep no
+ 1608
+ 1609  cat nohup.out 
+ 1610  
+ 1611
+ 1612  ps aux|grep python3
+ 1613  kill -9 10996
+ 1614  kill -9 12014
+ 1615
+ 1616  ps aux|grep python3
+ 1617  
+ 1618
+ 1619  ps aux|grep start.sh
+ 1620  ps -A
+ 1621
+ 1622  cat nohup.out 
+ 1623  ps aux|grep python3
+ 1624  
+ 1625
+ 1626  
+ 1627
+ 1628  ks
+ 1629  
+ 1630
+ 1631  ps aux}grep python
+ 1632  ps aux}grep python3
+ 1633  ps aux}grep python
+ 1634  ps aux |grep python
+ 1635
+ 1636  
+ 1637  ps aux|grep start.sh
+ 1638  kill -9 12013
+ 1639  
+ 1640
+ 1641  python3 FaceCloud.py 
+ 1642  python3 FaceCloud.py 
+ 1643
+ 1644  
+ 1645
+ 1646  ps aux|grep python3
+ 1647  c
+ 1648  
+ 1649
+ 1650  sz FaceCloud.py
+ 1651  rm -rf FaceCloud.py
+ 1652d
+ 1653  c
+ 1654  
+ 1655
+ 1656  rz -E
+ 1657
+ 1658  python3 FaceCloud.py 
+ 1659
+ 1660  rm -rf FaceCloud.py
+ 1661  rz -E
+ 1662  python3 FaceCloud.py 
+ 1663  python3
+ 1664  
+ 1665
+ 1666  rm -rf FaceCloud.py
+ 1667
+ 1668  rz -E
+ 1669  python3 FaceCloud.py 
+ 1670  pip3 list
+ 1671  pip3 uninstall pika
+ 1672  pip uninstall pika
+ 1673  pip3 uninstall pika
+ 1674  pip install --upgrade pip
+ 1675  pip3 install --upgrade pip
+ 1676  pip uninstall pika
+ 1677  pip3 uninstall pika
+ 1678  pip3 install pika
+ 1679  python3 FaceCloud.py 
+ 1680
+ 1681  
+ 1682
+ 1683  rm -rf FaceCloud.py
+ 1684
+ 1685  rz -E
+ 1686  ps aux|grep python3
+ 1687
+ 1688  ps aux|grep start
+ 1689  kill -9 27305
+ 1690  ps aux|grep start
+ 1691  
+ 1692  history 
+ 1693  ps aux|grep start
+ 1694  nohup ./start.sh &
+ 1695  ps aux|grep python3
+ 1696
+ 1697  ps aux|grep start
+ 1698  kill -9 12152
+ 1699  ps aux|grep no
+ 1700  ps aux|grep nop
+ 1701  history 
+ 1702  ps aux|grep nohup
+ 1703  
+ 1704
+ 1705  ps aux|grep python3
+ 1706  python3 FaceCloud.py 
+ 1707  python3 list
+ 1708  pip3 list
+ 1709  pip list
+ 1710  pip3 list
+ 1711  pip3 install pip._internal
+ 1712  wget https://bootstrap.pypa.io/get-pip.py  --no-check-certificate
+ 1713  c
+ 1714  
+ 1715  python3 list
+ 1716  pip3 list
+ 1717  sudo python get-pip.
+ 1718  sudo python3 get-pip.py
+ 1719  pip3 list
+ 1720  pip3 install oika
+ 1721  pip3 install pika
+ 1722  pip install pika
+ 1723  python3 -m pip install pika
+ 1724  python3 -m pip uninstall pika
+ 1725  sudo python3 -m pip uninstall pika
+ 1726  python3 -m pip install pika
+ 1727  sudo python3 -m pip install pika
+ 1728  
+ 1729
+ 1730  python3 FaceCloud.py 
+ 1731  rm -rf FaceCloud.py
+ 1732
+ 1733  ps aux|grep start
+ 1734  ps aux|grep start.sh
+ 1735  rz -E
+ 1736  python3 FaceCloud.py 
+ 1737  rm -rf FaceCloud.py
+ 1738  rz -E
+ 1739  python3 FaceCloud.py 
+ 1740  ps aux|grep start
+ 1741  history 
+ 1742  nohup ./start.sh &
+ 1743  ps aux|grep python3
+ 1744  ckear
+ 1745  
+ 1746
+ 1747  cat nohup.out 
+ 1748  
+ 1749
+ 1750  vim FaceCloud.py
+ 1751  python3 FaceCloud.py 
+ 1752  
+ 1753
+ 1754  python3 FaceCloud.py 
+ 1755  ps aux|grep python3
+ 1756  c
+ 1757  
+ 1758  tail -f nohup.out 
+ 1759  
+ 1760
+ 1761  
+ 1762
+ 1763  pa aux|grep python3
+ 1764  ps aux|grep python3
+ 1765  ps aux|grep start
+ 1766  
+ 1767
+ 1768  ps aux|grep start
+ 1769  c
+ 1770  
+ 1771
+ 1772  
+ 1773
+ 1774  
+ 1775
+ 1776  
+ 1777
+ 1778  
+ 1779
+ 1780  vim start.sh 
+ 1781  ps aux|grep python3
+ 1782  history 
+ 1783  nohup ./start.sh &
+ 1784  ckear
+ 1785  ks
+ 1786  
+ 1787
+ 1788  ps aux|grep python3
+ 1789  ps aux|grep start.sh
+ 1790  
+ 1791
+ 1792  
+ 1793
+ 1794  
+ 1795  dobuild
+ 1796  
+ 1797
+ 1798  ps aux|grep python
+ 1799  ps aux|grep python3
+ 1800  
+ 1801
+ 1802  
+ 1803
+ 1804  c
+ 1805  
+ 1806
+ 1807  
+ 1808
+ 1809  
+ 1810
+ 1811  
+ 1812
+ 1813  
+ 1814
+ 1815  vim start.sh 
+ 1816  
+ 1817
+ 1818  
+ 1819
+ 1820  vim start.sh 
+ 1821  
+ 1822
+ 1823  cat nohup.out 
+ 1824
+ 1825  cat nohup.out 
+ 1826  
+ 1827
+ 1828  rm -rf nohup.out 
+ 1829
+ 1830  ps aux|grep python3
+ 1831  kill -9 19040
+ 1832
+ 1833  ps aux|grep python3
+ 1834  ps aux|grep nohup
+ 1835  
+ 1836
+ 1837  ps aux|grep start
+ 1838  kill -9 19039
+ 1839  
+ 1840
+ 1841  ps aux|grep python3
+ 1842  kill -9 26717
+ 1843  ps aux|grep python3
+ 1844  
+ 1845  python3 FaceCloud.py 
+ 1846  
+ 1847
+ 1848  ps aux|grep start.sh 
+ 1849  
+ 1850
+ 1851  cdp
+ 1852  
+ 1853  ps
+ 1854  ps -A
+ 1855  ps aux|grep start.sh 
+ 1856
+ 1857  
+ 1858  ps -A
+ 1859  ps aux|grep start.sh
+ 1860  kill 10995
+ 1861  ps aux|grep start.sh
+ 1862  kill 11667
+ 1863  ps aux|grep start.sh
+ 1864  ./start.sh  &
+ 1865  ps aux|grep start.sh
+ 1866  ./start.sh  &
+ 1867  ;s
+ 1868
+ 1869  
+ 1870
+ 1871  ps aux|grep python3
+ 1872  
+ 1873
+ 1874  python3 FaceCloud.py 
+ 1875  
+ 1876
+ 1877  vim start.sh 
+ 1878  
+ 1879
+ 1880  
+ 1881
+ 1882  ps aux|grep python3
+ 1883  kill -9 9022
+ 1884
+ 1885  ps aux|grep python3
+ 1886  vim FaceCloud.py
+ 1887  
+ 1888
+ 1889  cdp
+ 1890
+ 1891  cdo
+ 1892 
+ 1898  find / mysql.conf
+ 1899  whereis mysql
+ 1900  cd /usr/bin/
+ 1901
+ 1902  cd ..
+ 1903
+ 1904  which mysql
+ 1905  cd bin/
+ 1906
+ 1907  cd mysql
+ 1908
+ 1909  whereis mysql
+ 1910  cd /usr/lib/mysql
+ 1911
+ 1912  cd plugin/
+ 1913
+ 1914  cd ..
+ 1915
+ 1916  cd /etc/mysql
+ 1917
+ 1918  vim mysql.cnf 
+ 1919  vim my.cnf
+ 1920  cd conf.d/
+ 1921
+ 1922  vim ..
+ 1923  cd ..
+ 1924
+ 1925  cd mysql.conf.d/
+ 1926
+ 1927  vim mysqld.cnf 
+ 1928
+ 1929  vim mysqld_safe_syslog.cnf 
+ 1930  cd ..
+ 1931
+ 1932  cd conf.d/
+ 1933
+ 1934  vim mysql.cnf 
+ 1935  cat mysql.cnf 
+ 1936  
+ 1937
+ 1938  cd ..
+ 1939
+ 1940  cd mysql.conf.d/
+ 1941
+ 1942  vim mysql.cnf
+ 1943  vim mysqld.cnf 
+ 1944
+ 1945  vim mysqld.cnf 
+ 1946  chmod 766 mysqld.cnf 
+ 1947  su
+ 1948  vim mysqld.cnf 
+ 1949  service mysqld restart 
+ 1950  /etc/init.d/mysql stop 
+ 1951  /etc/init.d/mysql start
+ 1952  show variables Like '%datadir%';
+ 1953  mysql -uroot
+ 1954  mysql -uroot -p
+ 1955
+ 1956  vim mysqld.cnf 
+ 1957  mysql -uroot
+ 1958  mysql -uroot -p
+ 1959  
+ 1960
+ 1961  vim FaceFeature.py 
+ 1962  ps aux|grep python3
+ 1963  vim FaceCloud.py
+ 1964  
+ 1965  mysql -uroot -p
+ 1966  cdp
+ 1967
+ 1968  
+ 1969
+ 1970  vim FaceCloud.py
+ 1971  
+ 1972  history 
+ 1973  mysql -uroot -p
+ 1974  
+ 1975
+ 1976  vim FaceCloud.py
+ 1977  sz FaceCloud.py
+ 1978
+ 1979  ps aux|grep python3
+ 1980  kill -9 5043
+ 1981  ps aux|grep python3
+ 1982  
+ 1983
+ 1984  
+ 1985
+ 1986  pwd
+ 1987  cd ../
+ 1988
+ 1989  cd ops/
+ 1990
+ 1991  cd ../
+ 1992  cd yxhtest12/
+ 1993
+ 1994  cd ../zyl/
+ 1995
+ 1996
+ 1997  df -lh
+ 1998  history
