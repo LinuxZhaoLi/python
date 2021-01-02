@@ -1,0 +1,7 @@
+1 pycharm 不能汉化。
+设置文本头：
+
+setting --> Editer --> File and Code Template
+#！/usr/bin/env python 
+# -*- coding:utf-8 -*-
+# author: zls time ${DATE}

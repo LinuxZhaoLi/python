@@ -25,3 +25,12 @@
 12 qtHaveModule(name) 检查按名称指定的Qt模块是否存在
     TEMPLATE = subdirs
     SUBDIRS = pinchzoom fingerpaint knobs dials
+
+
+13 http://download.qt.io/static/mirrorlist/
+软件源：
+http://mirrors.ustc.edu.cn/qtproject/online/qtsdkrepository/windows_x86/root/qt/
+
+
+（1） 使用qtDesignser设置ui文件
+(2) 在项目中导入： 

@@ -1,0 +1,11 @@
+格式化数据结果：
+.header on
+.mode column
+.timer on
+查看表：
+.table
+.schema 查看建表
+
+delete from table; 删除
+
+create table if not exists t_student(id integer primary key autoincrement, name text, age integer);

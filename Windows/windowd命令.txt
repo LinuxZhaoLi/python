@@ -200,6 +200,8 @@ open ip:
 切换交换模式prompt
 下载文件：mget filename.
 
+输入devmgmt.msc，打开设备管理
+
 
 
 

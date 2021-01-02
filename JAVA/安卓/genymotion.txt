@@ -1,0 +1,29 @@
+android             information related to the Android system included in Genymotion distribution
+                    Genymotion分发中包含的与Android系统相关的信息
+battery             actions and information related to the battery widget
+                    与电池部件相关的操作和信息
+devices             generic actions related to virtual devices (listing, selection, ...)
+                    与虚拟设备相关的通用操作（列表、选择…）
+diskio              actions and information related to the disk throughput
+                    与磁盘吞吐量相关的操作和信息
+exit                quit this application
+genymotion          information related to the Genymotion system
+                    与发生系统有关的信息
+gps                 actions and information related to the Global Positioning System widget
+                    与全球定位系统部件相关的操作和信息
+help                display this help and display help for each verb
+                    显示此帮助并显示每个谓词的帮助
+network             actions and information related to the network quality of service
+                    与网络服务质量有关的行动和信息
+pause               perform a pause (useful for automatic tests)
+                    执行暂停（用于自动测试）
+phone               actions related to the phone widget
+                    与手机小部件相关的操作
+quit                quit this application
+rotation            actions related to the rotation of virtual devices
+                    与虚拟设备的旋转相关的操作
+version             version number of the running Genymotion Shell application
+
+Failure [INSTALL_FAILED_CPU_ABI_INCOMPATIBLE]
+genymotion现在的发布版本没有带有Genymotion-ARM-Translation.zip，需要手动添加！
+下载地址： https://blog.csdn.net/oncealong/article/details/89917927  

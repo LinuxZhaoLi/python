@@ -5,4 +5,74 @@ Label ： 属性、
 
 第一步：
       自定一个组件
-      
+QToolButton 设置风格：
+btnSimulate->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+QPushButton 设置图标和文字方向
+btn_button->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
+Qlabel中内容的对齐方式：
+void setAlignment(Qt::Alignment)
+label->setAlignment(Qt::AlignCenter);  
+
+
+    // [1] 图片不重复，可自由缩放
+    ui->label->setStyleSheet("QLabel{"
+                             "border-image:url(:/images/bd.png) 4 4 4 4 stretch stretch;"
+                             "}");
+ 
+    // [2] 图片不重复，大小固定
+    ui->label_2->setStyleSheet("QLabel{"
+                               "background-image:url(:/images/bd.png);"
+                               "background-position:top right;"
+                               "background-origin:content;"
+                               "background-repeat:none;"
+                               "}");
+ 
+    // [3] 图片不重复，可设置缩放比例，不可动态缩放
+    QImage* img = new QImage;
+    img->load(QString(":/images/bd.png"));
+    QImage scaledimg;
+    scaledimg = img->scaled(ui->label_3->width(),ui->label_3->height(),Qt::KeepAspectRatio);
+    ui->label_3->setPixmap(QPixmap::fromImage(scaledimg));
+
+    设置字体大小颜色：
+      QFont ft;
+      ft.setPointSize(14);
+      QPalette pa;
+      pa.setColor(QPalette::WindowText,Qt::red);
+      lb->setPalette(pa);
+
+      {'name': 'hmAgm', 'msg': 'handshake', 'command': 'handshake', 'result': 0, 'resumeMode': 0 }'enReadSoftVersion': '', 'exReadSoftVersion': '', 'operatorId': '000000', 'state': {'enFace': {'status': 2, 'connect': 0, 'code': 0, 'info': '正常'}, 'exFace': {'status': 2, 'connect': 0, 'code': 0, 'info': '正常'}, 'hmReaderEnter': {'status': 0, 'alertNum': 0, 'connect': 1, 'version': '1.01.02', 'loadingStatus': 0, 'info': [{'code': 3, 'info': '读卡器无储值票SAM'}], 'data': [{'readerCom': 1}, {'samStatus': 1, 'samType': 1}, {'initReaderAnswer': 0}, {'getStatusAnswer': 1}, {'findCardAnswer': 1}, {'readCardAnswer': 1}, {'sendParAnswer': 1}]}, 'hmReaderExit': {'status': 0, 'alertNum': 0, 'connect': 1, 'version': '1.01.02', 'loadingStatus': 0, 'info': [], 'data': [{'readerCom': 0}, {'samStatus': 0, 'samType': 1}, {'initReaderAnswer': 0}, {'getStatusAnswer': 1}, {'findCardAnswer': 1}, {'readCardAnswer': 1}, {'sendParAnswer': 1}]}, 'gcuCom': {'status': 2, 'connect': 0, 'code': 0, 'info': '正常', 'enterNum': 0, 'exitNum': 0, 'breakInFlag': 0, 'workMode': 64, 'operationMode': 49, 'statusBit': 0, 'sensorState': 1, 'tailingFlag': 0, 'rGateBreakFlag': 0, 'emergencyStatus': 0, 'doorError': 0, 'mantanceDoor': 0}, 'tcuCom': {'status': 0, 'connect': 0, 'code': 0, 'info': '票箱离线', 'initFlag': 0, 'box1State': 0, 'box2State': 0, 'box1Full': 0, 'box2Full': 0, 'blockFlag': 0}, 'hmUpsMqtt': {'status': 2, 'connect': 1, 'overTemp': 0, 'inputOut': 0, 'info': ''}}}
+
+QPushButton:
+
+可以通过重写sizeHint()方法修改按钮的默认大小。
+在布局（Layout）中设置大小
+1.通过QSizePolicy类可以修改按钮的大小策略和拉伸策略。
+2.也可以直接使用setFixedSize()方法设置按钮的固定大小。
+
+
+
+QLabel
+一是使用setPalette()方法；
+ QPalette pe;
+ pe.setColor(QPalette::WindowText, Qt::red);
+ QLabel *label = new QLabel(this);
+ label->setPalette(pe);
+ label->setText("Hello World");
+二是使用样式表；
+label->setStyleSheet("background-color: rgb(250, 0, 0);font-size:60px;color:blue");
+selfCnTip->setStyleSheet("QLabel{background-color:rgb(200,101,102);text-align: center;color:white}");
+
+三是可以使用QStyle；
+QLabel *label = new QLabel("<h2><i>Hello</i><font color=red>Qt!</font></h2>");
+
+文字居中： 检查是否使用了固定尺寸setFixedSize在尺寸固定时，对齐策略默认失效。
+   文本字间距  strClientUpdateInfo.append("<p style='marign:20px'>");
+
+（1） QLabel 字体滚动
+
+
+（1）QWidget::paintEngine: Should no longer be called 错误解决办法
+
+
+

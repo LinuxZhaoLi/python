@@ -1,0 +1,269 @@
+
+1  UnboundLocalError: local variable 'command' referenced before assignment
+        UnboundLocalError:赋值前引用了局部变量“command”
+        在函数外部已经定义了变量n，在函数内部对该变量进行运算，运行时会遇到了这样的错误：
+
+
+2 python 字符转化为const char* 
+
+3 python 将字节转化为long
+        from Crypto.Util.number import bytes_to_long
+        print(bytes_to_long(b'a'))
+4 将字节转化为浮点数 二进制数据转float，可以用struct.unpack()来实现。
+        import struct
+        ff = struct.unpack('<f',struct.pack('4B',bytes))[0]
+
+5 libusb跨平台库，使应用程序可以轻松访问USB设备.PyUSB
+  PyUSB提供Python语言的USB访问。
+
+  import sys, os
+sys.path.append(os.path.dirname(os.getcwd()))       # 添加环境变量
+from queue import Queue
+
+import threading
+import time
+
+from Utils.common.Log import log, logByte   # 添加日志
+import usb.util    # 导入包文件
+
+
+def usbLog(s):
+    log('usb', s)
+
+
+def usbLogByte(buf, flag=True):
+    logByte('usb', buf, flag)
+
+
+class CReceiceThread(threading.Thread):
+    def __init__(self, dat):
+        threading.Thread.__init__(self)
+        self.Dat = dat
+        self.RunFlag = True
+
+    def run(self):
+        Usb = self.Dat  # type:CUsb
+        protcal = Usb.protcal  # type:CUsbPrintProtocal
+        while self.RunFlag:
+            try:
+                data = Usb.dev.read(endpoint=Usb.read_addr, size_or_buffer=1)
+                b = bytearray(data)
+                if b != b'':
+                    Usb.myLogByte(b, False)
+                    msg = protcal.parse(b)
+                    if msg:
+                        Usb.putOp(msg)
+
+                    Usb.protcal.n += 1
+                    if Usb.protcal.n < 5:
+                        Usb.AppendOp(Usb.protcal.getStates(Usb.protcal.n))
+
+
+            except Exception as e:
+                # pass
+                print(e)
+            time.sleep(0.01)
+
+
+class CSendThread(threading.Thread):
+    def __init__(self, dat):
+        threading.Thread.__init__(self)
+        self.Dat = dat
+        self.RunFlag = True
+
+    def run(self):
+        Usb = self.Dat  # type:CUsb
+        SendQueue = Usb.SendQueue  # type:Queue
+        protcal = Usb.protcal
+        # OutContainer = Client.OutQueue  # type:Queue
+
+        while self.RunFlag:
+            op = SendQueue.get()
+            # print ("CSendThread:", SendQueue.qsize())
+            if op:
+                data = protcal.bytes(op)
+                Usb.dev.write(endpoint=Usb.write_addr, data=data)
+                Usb.myLogByte(data, True)
+
+
+class CUsb(object):               # 定义一个对象
+    def __init__(self, outQueue, protcal, setting, name="CUsb", syn=True, timeOut=3):
+        self.SendQueue = Queue()        # 队列
+        self.outQueue = outQueue        # 队列
+        self.name = name
+        self.logName = self.name + "Usb"
+        self.sysReadFlag = False        # 同步标志
+        self.timeOut = timeOut          # 超时
+        self.mySyn = syn
+        self.syn = syn
+
+        self.logFlag = 1
+
+        self.protcal = protcal
+        self.setting = setting
+        self.buf = bytearray()
+        self.Threads = []
+        if self.open():
+            self.Threads.append(CReceiceThread(self))
+            self.Threads.append(CSendThread(self))
+        for t in self.Threads:
+            t.start()
+
+    def Close(self):
+        for t in self.Threads:
+            t.RunFlag = False
+        self.SendQueue.put({})
+        for t in self.Threads:
+            t.join()                # 回收线程
+
+    def putOp(self, op):        # 内部发送消息
+        op["name"] = self.name
+        self.outQueue.put(op)
+
+    def open(self):
+        try:
+            # s = serial.Serial(com, baud, timeout = timeOut)
+            idVendor = self.setting['vid']
+            idProduct = self.setting['pid']
+            write_addr = self.setting['write_addr']
+            read_addr = self.setting['read_addr']
+
+            self.idVendor = idVendor
+            self.idProduct = idProduct
+            self.write_addr = write_addr
+            self.read_addr = read_addr
+            dev = usb.core.find(idVendor=idVendor, idProduct=idProduct)  # 创建一个设备
+            if dev != None:
+                self.dev = dev
+                op = {}
+                op["command"] = "usb.open"
+                op['msg'] = "usb.open"
+                op["info"] = '%s' % write_addr + ", usb打开成功！"
+                op['result'] = 0
+                # comLog(str(op))
+                self.myLog(str(op))
+                self.putOp(op)
+                return True
+            else:
+                op = {}
+                op["command"] = "usb.open"
+                op["info"] = '%s' % write_addr + ", usb打开失败！"
+                op['result'] = -1
+                # comLog(str(op))
+                self.myLog(str(op))
+                self.putOp(op)
+                return False
+
+        except Exception as e:
+            print("error:", e)
+            op = {}
+            op["command"] = "usb.open"
+            op["info"] = '%s' % write_addr + ", usb打开失败！"
+            op['result'] = -1
+            # comLog(str(op))
+
+            self.putOp(op)
+            self.myLog(str(op))
+            return False
+
+    def AppendOp(self, op):
+        self.SendQueue.put(op)
+
+    def myLog(self, s):
+        log(self.logName, s)
+        pass
+
+    def myLogByte(self, buf, flag=True):
+        if self.logFlag == 1:
+            logByte(self.logName, buf, flag)
+        pass
+
+
+class CUsbPrintProtocal(object):          #   协议
+    states = {
+        'state': 0,
+        'data': []
+    }
+
+    n = 1
+
+    def __init__(self):
+        pass
+
+    def bytes(self, op):                # 打印发送
+        command = op['command']
+        data = op['data']
+
+        if command == 0x01:
+            return data.encode('GB2312')
+
+        elif command == 0x02:           # 状态查询
+            b = bytearray()
+            b.append(16)
+            b.append(4)
+            b.append(data)
+            return b
+
+    def parse(self, buf):
+        n = self.n
+        data = self.states['data']
+        data.append(buf)
+        if n == 4:
+            op = {}
+            op['command'] = 0x02
+            op['state'] = self.states
+            print(op)
+            return op
+        else:
+            return {}
+
+    def getStates(self, n=1):
+        if n == 1:
+            self.n = n
+            data = self.states['data']
+            data.clear()
+        op = {}
+        op['command'] = 0x02
+        op['data'] = n
+        return op
+
+
+if __name__ == "__main__":
+
+    # q = Queue()         # 队列
+    # p = CUsbPrintProtocal()   # 协议
+    # setting = {'vid': 0x0483, 'pid': 0x5720, 'write_addr': 0x01, 'read_addr': 0x81}
+    # s = CUsb(q, p, setting, "tpu", False)
+    # op = {'command': 0x01, 'data': '世界你好'}
+    # s.AppendOp(op)
+    #
+    # s.AppendOp(p.getStates())
+
+    ss = '世界你好\n'
+    print(ss.encode('GB2312'))
+    # b'\xc9\xcf\xba\xa3\xbb\xaa\xc3\xfa\xd6\xc7\xc4\xdc\xd6\xd5\xb6\xcb\xc9\xe8\xb1\xb8\xb9\xc9\xb7\xdd\xd3\xd0\xcf\xde\xb9\xab\xcb\xbe-\xb3\xc2\xd3\xc0\xb7\xbc\n'
+
+    import usb.util
+    import sys
+
+    all_devs = usb.core.find(find_all=True)
+    print(all_devs)
+    # for d in all_devs:
+    #     print(d)
+
+6 字符串转化为字节数组：
+    def str2bytearray(w, s):  # 字节宽度  ，字符串
+        s.zfill(w * 2)   # 返回指定长度的字符串,原字符串右对齐,前面填充0。 
+        b = bytearray()
+        for i in range(0, w):
+            t = i * 2
+            b.append(int(s[t:t + 2], 16))  # 进制转化
+        return b
+    s = '41000118AAA0190A130000000000F841000118'
+
+    b = bytearray(CHMTools.str2bytearray(int(len(s) / 2), s))          # 字符串转化为 字节
+
+
+
+
+

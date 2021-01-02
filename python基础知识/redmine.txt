@@ -1,0 +1,91 @@
+bytearray 转化为str.
+
+str ---> bytes:
+bytes(s,encoding="utf-8")
+
+bytes ---> str
+str(b,encoding="utf-8")
+
+
+bytearray  转化为str:
+str = bytearray.decode('utf-8')
+
+str  = "aabbcc"
+
+列表数相加：
+
+
+ll = [[1,2,3],[1,2,3],[1,2,3]]
+def extendLists(lists):
+    listWhole = []
+    for itemList in lists:
+        listWhole.extend(itemList)
+    numberWhole = sum(listWhole)
+    return numberWhole
+json 将dict 转化为str
+
+op = {"1":"2"}
+str = json.dump(op).encode() 转化为字节
+
+
+timedelta
+:模块ctypes是Python内建的用于调用动态链接库函数的功能模块,一定程度上可以用于Python与其他语言的混合编程
+
+
+os.system("rd C:\\Users\\Administrator\\AppData\\Local\\Temp /s /q") // 删除文件
+
+
+ win32api.ShellExecute(0,'open',exe,'','',1)  # python 打开程序
+
+os.system('taskkill /f /im %s'% name) 关闭程序
+
+
+
+关闭系统： 延迟
+while cnt:
+	time.sleep(1)
+	cnt = cnt-1
+os.system("shutdown -s -t 0")
+
+获取配置文件：
+map = {}
+    list = ['host','port','username','password','homeDir','localDir']
+    for i in list:
+        map[i] = configTest.get(section,str(i),'0')
+
+1 全局变量的使用：
+    1 文件导入：
+        global_list.py
+        GLOBAL_A = 'a'
+        GLOBAL_B = 'B'
+        import global_list
+        global_list.GLOBAL_A
+
+2 ui文件转化py 文件
+    pyuic4 uiFace.ui -o uiFace.py
+
+3 加载动态库：
+    import ctypes
+    lib = ctypes.windll.LoadLibrary("../xx.dll")
+
+4 pip安装超时
+    1）--default-timeout=100
+    2） pip install redis -i https://pypi.douban.com/simple 
+
+5 pip更新：
+    python -m pip install --upgrade pip -i https://pypi.douban.com/simple   
+
+
+6 使用虚拟环境：
+    1 安装virtualenv
+    2 创建一个新环境目录
+    virtualenv --no-site-packages 环境名
+    3 在Scripts 中有一个active执行一下
+        进入虚拟环境： 在Scripts/active
+        退出虚拟环境: deactivate
+
+
+第一颗python加载qml
+
+
+

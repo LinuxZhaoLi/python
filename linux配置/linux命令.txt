@@ -91,6 +91,9 @@ chkconfig mysqld on        #设定mysqld在各等级为on，“各等级”包�
 
 3 查看显卡型号：
      lspci |grep VGA
+    lspci  | grep -i vga  查看显卡信息
+4 查看cpu信息：
+·   cat /proc/cpuinfo | grep "cpu cores" | uniq
 
 4 环境变量：
     Linux declare命令用于声明 shell 变量。
@@ -128,3 +131,14 @@ chkconfig mysqld on        #设定mysqld在各等级为on，“各等级”包�
     rpm -ivh xxx.rpm  正常安装。
     which vi
     /etc/init.d/network restart  重启网络服务
+
+
+Win32顾名bai思义就是MS的Windows应用。
+
+
+rpm -qa                # 查看所有安装的软件包
+
+
+
+
+

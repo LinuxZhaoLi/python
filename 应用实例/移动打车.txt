@@ -1,0 +1,9 @@
+界面：
+    （1） 司机 （2） 乘客 （3）高德地图
+JNI 模块 
+    (1)libcurl (2) cjson
+服务器：
+    (1) libevent + https  (2) libcurl
+数据服务器：
+    （1） libevent + https （2） api
+                                (1) fastdfs (2) mysql (3) redis
