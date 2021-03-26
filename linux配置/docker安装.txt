@@ -83,3 +83,18 @@ Docker 镜像加速： 拉取镜像。
     (2) docker build -t nginx:v3 .
 
 
+镜像文件位置：
+    cd /var/lib/docker
+
+21
+java -jar atlassian-agent.jar \
+  -d -m 529603712@qq.com -n BAT \
+  -p conf -o http://confluence.wzlinux.com \
+  -s BAHQ-BP9J-EXB3-FUAD
+
+  jdbc:mysql://192.168.254.215/confluence?useUnicode=true&characterEncoding=utf8
+
+
+  CREATE DATABASE confluence CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+grant all on confluence.* to 'root'@'%' identified by 'root';
+

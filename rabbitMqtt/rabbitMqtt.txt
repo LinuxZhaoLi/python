@@ -49,3 +49,30 @@ Job for rabbitmq-server.service failed. See "systemctl status rabbitmq-server.se
 8  systemctl status rabbitmq-server.service 
 
 
+rabbitMq 教程：
+https://www.cnblogs.com/shenh/p/10497244.html
+
+9 添加开机启动：
+
+vi rabbitmq_server 添加
+#chkconfig:2345 61 61
+chmod a+x /etc/init.d/rabbitmq-server
+3、设置执行权限，命令：chmod a+x /etc/init.d/rabbitmq-server
+
+4、添加开机启动项
+
+　　　　a、添加命令：chkconfig --add /etc/init.d/rabbitmq-server
+
+　　　　b、查看启动项，命令：chkconfig --list
+
+　　　　　　rabbitmq-server启动项状态：rabbitmq-server           0:off   1:off   2:off   3:off   4:off   5:off   6:off
+
+　　　　c、需要设置rabbitmq-server启动命令：chkconfig rabbitmq-server on
+
+　　　　　　rabbitmq-server启动项状态：rabbitmq-server           0:off   1:off   2:on    3:on    4:on    5:on    6:off
+
+　　　　d、关闭命令为：chkconfig rabbitmq-server off
+
+　　　　e、删除命令为：chkconfig --del rabbitmq-server
+
+5、执行命令reboot，重启服务器即可验证rabbitmq-server开机启动

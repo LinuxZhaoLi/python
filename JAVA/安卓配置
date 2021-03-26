@@ -14,3 +14,7 @@ adb logcat -v time >.\logcat.log 开始抓取日志，>：代表输出到.\logca
 adb -s xxxxxx shell ps 21190  指定adb命令的设备。
 vt100=virtual terminate 100. 虚拟终端是一种假的终端，真的是有自己的显示器和键盘的
 VT100是一个终端类型定义,VT100控制码是用来在终端扩展显示的代码。
+
+4   
+# echo  mem  > /sys/power/state    使系统进行睡眠
+# echo  on  > /sys/power/state     使系统从睡眠中唤醒过来

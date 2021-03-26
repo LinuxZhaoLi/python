@@ -203,6 +203,15 @@ open ip:
 输入devmgmt.msc，打开设备管理
 
 
+修改权限问题： 
+	方式1
+	icacls:  显示或修改指定文件上的随机访问控制列表 (DACL)，并将存储的 DACL 应用于指定目录中的文件。
+	icacls c:\ /setintegritylevel M
+	方式2：
+	gpedit.msc
+	点击计算机配置→Windows设置→安全设置→本地策略→用户权限分配，
+
+
 
 
 

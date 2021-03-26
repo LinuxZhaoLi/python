@@ -1,0 +1,77 @@
+使用gdb大法都搞不定啊。打印调用堆栈只有两行。
+同时添加日志，发现该崩溃发生在函数返回位置。
+说明是老朋友了。就是局部变量过大，导致堆栈段溢出。
+把局部变量修改为全局变量后，之前的崩溃位置不在崩溃。
+但是崩溃位置变成其他用到这个类型的局部变量的函数返回位置。
+经过灵机一动的分析。认为是函数返回的时候，这个类型的析构函数崩溃。
+进一步调查发现是建构函数错误初始化的原因。
+
+“info”后面必须跟一个info命令的名称。
+info子命令列表：
+信息地址——描述符号SYM的存储位置
+info all registers—所有寄存器及其内容的列表
+info args—当前堆栈帧的参数变量
+info auto load—打印自动加载文件的当前状态
+info auto load scripts—打印自动加载的Python脚本列表
+info auxv—显示下级的辅助向量
+信息书签--用户可设置书签的状态
+info breakpoints—指定断点的状态（如果没有参数，则为所有用户可设置的断点）
+info checkpoints—当前已知检查点的ID
+信息类——所有Objective-C类
+info common—打印Fortran公共块中包含的值信息复制再分配GDB副本的条件
+info dcache—打印有关dcache性能的信息
+info display—程序停止时要显示的表达式
+info exceptions—列出所有Ada异常名称信息扩展——与源语言相关联的所有文件扩展名
+info files—目标和正在调试的文件的名称
+info float—打印浮点单元的状态
+info frame—有关选定堆栈帧的所有信息
+info frame filter—列出所有注册的Python帧过滤器
+---键入<return>继续，或键入q<return>退出---
+信息函数--所有函数名
+info guile—guile info显示的前缀命令
+信息句柄——当程序获得各种信号时调试器做什么
+info SUPERIORS—指定下级的ID（如果没有参数，则为所有下级）
+信息行——源代码行的核心地
+info locals—当前堆栈帧的局部变量
+info macro—显示宏的定义
+info宏--显示LINESPEC中所有宏的定义
+info mem—内存区域属性
+信息os—显示os数据参数
+info pretty printer—列出所有注册的pretty打印机的GDB命令=
+info probes—显示可用的静态探测
+info proc—显示任何正在运行的进程的/proc进程信息
+info program—程序的执行状态
+信息记录--信记录选项
+信息寄存器——整数寄存器及其内容列表
+info scope—列出作用域的局部变量
+信息选择器-所有Objective-C选择器
+信息集--显示所有GDB设置
+信息共享库--已加载共享对象库的状态
+信息信号——当程序得到各种信号时调试器做什么
+信息跳过——显示跳过的状态
+info source—有关当前源文件的信息
+---键入<return>继续，或键入q<return>退出---
+信息源——程序中的源文件
+info stack—堆栈的回溯
+info static tracepoint markers—列出目标静态跟踪点标记
+信息符号——描述地址处的符号
+info target—正在调试的目标和文件的名称
+infotasks—提供关于所有已知Ada任务的信息
+信息终端——打印下级保存的终端状态
+信息线程—显示当前已知的线程
+info tracepoints—指定跟踪点的状态（如果没有参数，则为所有跟踪点）
+信息变量——跟踪状态变量及其值的状态
+info type printers—列出所有已注册类型打印机的GDB命令
+信息类型--所有类型名称
+info unwinder—列出退绕机的GDB命令
+信息变量——所有全局和静态变量名
+info vector—打印矢量单元的状态
+信息VTBL——显示C++对象的虚函数表
+信息保证——你没有的各种保证
+info watchpoints—指定监视点的状态（如果没有参数，则为所有监视点）
+info win—所有显示窗口的列表
+info xmethod—列出已注册xmethod匹配器的GDB命令
+---键入<return>继续，或键入q<return>退出---
+键入“help info”，后跟info子命令名称以获取完整文档。
+键入“apropos word”以搜索与“word”相关的命令。
+如果没有歧义，则允许使用命令名缩写。

@@ -1,4 +1,5 @@
-格式化数据结果：
+命令行使用sqlite3:
+格式化数据结果，对于表的信息，
 .header on
 .mode column
 .timer on
@@ -7,5 +8,14 @@
 .schema 查看建表
 
 delete from table; 删除
-
 create table if not exists t_student(id integer primary key autoincrement, name text, age integer);
+
+创建数据库：
+CREATE TABLE transactionRecordTable (
+    id                 INTEGER PRIMARY KEY AUTOINCREMENT,
+    sn                 INTEGER DEFAULT (0),
+    time               INTEGER DEFAULT (0),
+    issuerNo           INTEGER DEFAULT (0),
+    media              INTEGER DEFAULT (0)
+)
+

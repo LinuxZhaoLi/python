@@ -1,3 +1,9 @@
+centos：mysql账号密码： root  密码： root
+
+Docker version 19.03.13, build 4484c46d9d
+CentOS Linux release 7.8.2003 (Core)
+mysql  Ver 14.14 Distrib 5.7.28, for linux-glibc2.12 (x86_64) using  EditLine wrapper
+
 卸载
 1、 rpm -qa | grep -i mysql
 
@@ -106,6 +112,9 @@ mysql -uroot -p
 
 修改密码：
 alter user 'root'@'localhost' identified by '111111';
+ update user set authentication_string = PASSWORD('hmsnc') where User = 'hmsnc'\g;
+  update user set authentication_string = PASSWORD('root') where User = 'root'\g;
+
 flush privileges;
 
 配置远程： 
@@ -118,3 +127,16 @@ service mysqld status 　　  #查看运行状态
 
 
 “mysqldump -uroot -proot -P3306 --default-character-set utf8  test > 想要存放的路径”
+mysqldump -uhmsnc -p  hmnc_mlc >db.sql
+没有权限：
+
+UPDATE mysql.user SET Grant_priv='Y', Super_priv='Y' WHERE User='hmsnc';
+ flush privileges;
+
+ SELECT command denied to user 'hmsnc'@'localhost' for table 't_auth_user'"
+ update user set Select_pri='Y' where user='hmsnc';
+
+ 错误：
+    （1）ERROR! MySQL is not running, but PID file exists
+    mysql 没有开启
+    

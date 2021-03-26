@@ -2,17 +2,14 @@
 一个摄像头。
 计算海拔高度。
 
-
 安装motion
 开机自启：
 sudo apt-get install motion
 sudo nano /etc/default/motion 
 start_motion_daemon = yes
 
-
 diskgenius 格式化TF卡
 win32 disk imager: 把系统写入TF卡
-
 
 advanced ip scanner: 网络扫描工具。
 
@@ -20,14 +17,40 @@ advanced ip scanner: 网络扫描工具。
 /storage/assets/xmb/monochome/font.ttf
 
 
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+sudo cp /etc/apt/sources.list.d/raspi.list /etc/apt/sources.list.d/raspi.list.bakk
+（1）
+sudo vi /etc/apt/sources.list
+deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi
+
+
+deb https://archive.raspbian.org/raspbian/ stretch main contrib non-free rpi
+
+
+
+（2）
+sudo vi /etc/apt/sources.list.d/raspi.list
+deb http://mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/ stretch main ui
+deb http://mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/ stretch main ui
+
+
+deb http://archive.raspberrypi.org/debian/ stretch main ui 
+
+deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster  main contrib non-free rpi
+deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster  main contrib non-free rpi
+
 
 软件源：
 /etc/apt/souces.list.d/raspi.list
 清华源：
- http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/
+ deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/
 
 看客节点：
  https://www.bilibili.com/video/BV1bt411c7fC?p=13
+ 树莓派识别二维码：
+ 
+ https://blog.csdn.net/x115104/article/details/78878599
+
 
 测试摄像头： $raspistill -v -o test.jpg
 
@@ -66,3 +89,29 @@ cmake -D BUILD_opencv_python3=yes
  -D PYTHON_DEFAULT_EXECUTABLE=/home/qy/software/anaconda3/envs/machineLearning/bin/python3.6m ..
 
 
+宽带账号：ad78682559
+密码：208019
+root 不能登录
+    vim /etc/ssh/sshd_config
+    # Authentication:
+    LoginGraceTime 120
+    PermitRootLogin yes
+    StrictModes yes
+
+    systemctl restart sshd
+清华开源库
+https://mirrors.tuna.tsinghua.edu.cn/?C=S&O=A
+ZBar开源介绍：
+https://www.cnblogs.com/flyinggod/p/8707883.html
+
+lsb_release -a ，查看当前树莓派系统版本
+安装zbar 教程
+https://blog.csdn.net/sinat_35162460/article/details/90245448
+安装emq 教程
+https://blog.csdn.net/weixin_30340617/article/details/97772464
+
+解决apt-get install 失败问题。
+https://blog.csdn.net/fightingboom/article/details/106879019
+
+安装zbar
+sudo apt-get install python-zbar

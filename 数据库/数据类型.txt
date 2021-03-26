@@ -24,3 +24,22 @@
     drop database databaseName;
 9 查看数据使用端口：
      netstat -anp|grep 3306
+
+
+CREATE TABLE `TB_OPERATOR_ROLE_INFO` (
+	`ID` INT(11) NOT NULL AUTO_INCREMENT,
+	`RoleName` VARCHAR(255) NULL DEFAULT NULL COMMENT '角色名称' COLLATE 'utf8mb4_bin',
+	`RoleId` VARCHAR(50) NOT NULL UNIQUE COMMENT '角色编号' COLLATE 'utf8mb4_bin',
+	`PageAuthCode` TEXT NULL COMMENT '页面权限数组-Json' COLLATE 'utf8mb4_bin',
+	`FunAuthCode` TEXT NULL COMMENT '功能权限数组-Json' COLLATE 'utf8mb4_bin',
+	`RoleDescription` VARCHAR(255) NULL DEFAULT NULL COMMENT '角色描述' COLLATE 'utf8mb4_bin',
+	`Founder` VARCHAR(255) NULL DEFAULT NULL COMMENT '创建人' COLLATE 'utf8mb4_bin',
+	`CreateTime` VARCHAR(50) NULL DEFAULT NULL COMMENT '创建时间' COLLATE 'utf8mb4_bin',
+	PRIMARY KEY (`ID`, `RoleId`) USING BTREE,
+	INDEX `ID` (`ID`) USING BTREE
+)
+COMMENT='角色表'
+COLLATE='utf8mb4_bin'
+ENGINE=InnoDB
+AUTO_INCREMENT=4
+;

@@ -71,9 +71,13 @@ map = {}
 4 pip安装超时
     1）--default-timeout=100
     2） pip install redis -i https://pypi.douban.com/simple 
+    3） pip install pandas -i https://pypi.douban.com/simple 
+
 
 5 pip更新：
     python -m pip install --upgrade pip -i https://pypi.douban.com/simple   
+
+pip install opencv-python -i https://pypi.douban.com/simple   --default-timeout=100
 
 
 6 使用虚拟环境：
@@ -85,7 +89,8 @@ map = {}
         退出虚拟环境: deactivate
 
 
-第一颗python加载qml
+pycharm永久破解：https://www.cnblogs.com/chaogu94/p/12187526.html。
+
 
 
 
